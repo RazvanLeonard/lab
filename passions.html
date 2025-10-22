@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Passions — Moise Razvan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header container">
+    <a class="brand" href="index.html">MOISE <span>RAZVAN</span></a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html">Work</a>
+      <a class="active" href="passions.html">Passions</a>
+      <a class="btn" href="mailto:moiserazvanleonard@gmail.com">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page container">
+    <section class="grid two">
+      <div class="card">
+        <h2>Hobbies</h2>
+        <ul class="list">
+          <li><strong>Computer installation & hardware</strong> — clean builds, upgrades, stability.</li>
+          <li><strong>Gaming</strong> — teamwork & competitive focus.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Why IT?</h2>
+        <p>
+          I love digging into new tech and turning problems into working solutions.
+          A tidy rack, a stable network, and happy users — that’s what drives me.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Side project ideas</h2>
+      <ul class="bullets">
+        <li>Homelab with virtualization & monitoring.</li>
+        <li>Home network segmentation (VLANs) with proper documentation.</li>
+        <li>Small web app to manage team shifts/tasks.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="y"></span> Moise Razvan</div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
