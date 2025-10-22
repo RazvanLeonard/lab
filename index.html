@@ -2,15 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Moise Razvan — Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#0b0c0e" />
   <link rel="icon" type="image/png" href="assets/moise-emoji-192.png" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Header -->
   <header class="site-header container">
     <a class="brand" href="index.html">MOISE <span>RAZVAN</span></a>
+
+    <!-- Mobile nav toggle -->
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <!-- Nav -->
     <nav class="nav">
       <a class="active" href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -20,10 +28,10 @@
     </nav>
   </header>
 
-  <!-- Main hero section -->
+  <!-- Home hero -->
   <main class="hero hero--rocky">
     <div class="container">
-      
+      <p class="kicker">RAZVAN-STYLE INTRO</p>
 
       <h1 class="headline">
         i'm <span>moise razvan</span><br />
@@ -31,9 +39,9 @@
         enthusiast
       </h1>
 
-      <!-- "Get in touch" row under hero -->
-      <a class="contact-cta under-hero" href="mailto:moiserazvanleonard@gmail.com" aria-label="Email Moise">
-        <img class="cta-emoji" src="assets/moise-emoji-192.png" alt="Moise emoji" />
+      <!-- Below-the-fold CTA -->
+      <a class="contact-cta" href="mailto:moiserazvanleonard@gmail.com" aria-label="Email Moise">
+        <img class="cta-emoji" src="assets/moise-emoji-192.png" alt="" />
         <span>get in touch</span>
       </a>
     </div>
@@ -42,6 +50,18 @@
   <footer class="site-footer">
     <div class="container">© <span id="y"></span> Moise Razvan — Antwerp</div>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  </script>
 </body>
 </html>
