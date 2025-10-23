@@ -15,22 +15,27 @@
 /* Lenis manages scrolling */
 html{ scroll-behavior:auto !important }
 
-*{box-sizing:border-box}
-html,body{height:100%}
+*{ box-sizing:border-box }
+html,body{ height:100% }
 body{
   margin:0;
   font:16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color:var(--text);
+
+  /* Body owns the ONLY background so the page looks continuous */
   background:
     radial-gradient(900px 600px at 110% -10%, var(--accent-weak), transparent 55%),
     radial-gradient(800px 600px at -10% 110%, var(--accent-weak), transparent 55%),
     var(--bg);
+  background-repeat:no-repeat;
+  background-size:cover;
+
   padding-top:env(safe-area-inset-top, 0);
 }
 
-.container{width:min(1100px, 100%); margin:0 auto; padding:0 20px}
-a{color:inherit; text-decoration:none}
-.link{text-decoration:underline dotted}
+.container{ width:min(1100px, 100%); margin:0 auto; padding:0 20px }
+a{ color:inherit; text-decoration:none }
+.link{ text-decoration:underline dotted }
 
 /* ================== CURSOR GLOW ================== */
 @media (pointer:fine){
@@ -39,11 +44,11 @@ a{color:inherit; text-decoration:none}
     background: radial-gradient(560px at var(--mx,50%) var(--my,50%),
                 rgba(0,183,255,.18), rgba(0,183,255,0) 60%);
     opacity:var(--glow,0); transition:opacity .35s ease;
-    mix-blend-mode:screen; z-index:1;
+    mix-blend-mode:screen; z-index:1; /* under UI, over bg */
   }
   .card, .btn, .nav a, .brand{ position:relative; z-index:2 }
 }
-@media (prefers-reduced-motion: reduce){ body::before{display:none!important} }
+@media (prefers-reduced-motion: reduce){ body::before{ display:none !important } }
 
 /* ================== HEADER / NAV ================== */
 .site-header{
@@ -51,20 +56,24 @@ a{color:inherit; text-decoration:none}
   display:flex; align-items:center; justify-content:space-between;
   height:68px;
   padding-top:calc(env(safe-area-inset-top, 0));
-  background:transparent;             /* blend with page */
-  backdrop-filter:none; border-bottom:none; box-shadow:none;
+
+  /* transparent at top so it blends with page */
+  background:transparent;
+  backdrop-filter:none;
+  border-bottom:none; box-shadow:none;
 }
-/* soft blur once you scroll */
+
+/* soft blur once you scroll a bit */
 .site-header.is-scrolled{
   background:linear-gradient(to bottom, rgba(11,12,14,.72), rgba(11,12,14,.45));
   backdrop-filter:saturate(115%) blur(10px);
   border-bottom:1px solid var(--line);
 }
 
-.brand{ font-weight:900; letter-spacing:.8px; text-transform:uppercase; }
+.brand{ font-weight:900; letter-spacing:.8px; text-transform:uppercase }
 .brand span{ color:var(--accent) }
 
-/* desktop nav */
+/* desktop nav layout */
 .nav{ display:flex; align-items:center; gap:12px }
 
 /* glassy pill links */
@@ -93,6 +102,9 @@ a{color:inherit; text-decoration:none}
 /* ================== HOME — ROCKY HERO ================== */
 .hero--rocky{
   min-height:140vh; display:flex; align-items:flex-start; padding-top:14vh;
+
+  /* make sure hero NEVER paints its own bg */
+  background:none !important;
 }
 .kicker{
   color:var(--muted); letter-spacing:.18em; text-transform:uppercase;
@@ -105,7 +117,7 @@ a{color:inherit; text-decoration:none}
 .headline span{ color:var(--accent) }
 .hero--rocky a{ text-decoration:underline dotted }
 
-/* CTA row under hero */
+/* CTA row below hero (desktop) */
 .contact-cta{
   margin: clamp(260px, 42vh, 520px) auto 0;
   display:flex; align-items:flex-end; gap:0.35em;
@@ -117,7 +129,7 @@ a{color:inherit; text-decoration:none}
 .contact-cta span{ line-height:1; text-shadow:0 1px 0 rgba(0,0,0,.25) }
 
 /* ================== CONTENT / CARDS ================== */
-.page{padding:44px 0}
+.page{ padding:44px 0; background:transparent !important; box-shadow:none !important }
 .card{
   background:var(--surface); border:1px solid var(--line);
   border-radius:var(--radius); padding:24px; box-shadow:var(--shadow);
@@ -136,25 +148,28 @@ a{color:inherit; text-decoration:none}
 }
 
 .tap{ cursor:pointer }
-.grid{display:grid; gap:22px}
-.grid.two{grid-template-columns:1fr 1fr}
-@media (max-width:900px){ .grid.two{grid-template-columns:1fr} }
+.grid{ display:grid; gap:22px }
+.grid.two{ grid-template-columns:1fr 1fr }
+@media (max-width:900px){ .grid.two{ grid-template-columns:1fr } }
 
-.bullets{margin:0; padding-left:18px}
-.bullets li{margin:8px 0}
-.tags{display:flex; flex-wrap:wrap; gap:10px}
+.bullets{ margin:0; padding-left:18px }
+.bullets li{ margin:8px 0 }
+.tags{ display:flex; flex-wrap:wrap; gap:10px }
 .tags span{
   padding:8px 12px; border-radius:999px; border:1px solid var(--line);
   background:var(--surface-2); color:var(--text); font-size:14px;
 }
-.job{padding:18px 0; border-bottom:1px dashed var(--line)}
-.job:last-child{border-bottom:none}
-.job-head{display:flex; align-items:baseline; gap:12px; justify-content:space-between; flex-wrap:wrap}
-.job h3{margin:0}
-.job h3 span{color:var(--accent)}
-.meta{color:var(--muted); font-size:.95rem}
+.job{ padding:18px 0; border-bottom:1px dashed var(--line) }
+.job:last-child{ border-bottom:none }
+.job-head{ display:flex; align-items:baseline; gap:12px; justify-content:space-between; flex-wrap:wrap }
+.job h3{ margin:0 }
+.job h3 span{ color:var(--accent) }
+.meta{ color:var(--muted); font-size:.95rem }
 
-.site-footer{ color:var(--muted); padding:24px 0; margin-top:20px }
+.site-footer{
+  color:var(--muted); padding:24px 0; margin-top:20px;
+  background:transparent !important; border-top:none !important; box-shadow:none !important;
+}
 
 /* fade-in helper */
 .fade-in{ animation:fadeUp .5s ease both }
