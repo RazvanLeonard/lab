@@ -6,6 +6,17 @@
   <title>Work — Moise Razvan</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+  <script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+</script>
+
 <body>
   <header class="site-header container">
     <a class="brand" href="index.html">MOISE <span>RAZVAN</span></a>
@@ -69,3 +80,4 @@
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
+
