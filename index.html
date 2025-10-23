@@ -29,7 +29,7 @@
   <!-- Home hero -->
   <main class="hero hero--rocky">
     <div class="container">
-     
+      <p class="kicker">RAZVAN-STYLE INTRO</p>
 
       <h1 class="headline">
         i'm <span>moise razvan</span><br />
@@ -49,9 +49,13 @@
     <div class="container">© <span id="y"></span> Moise Razvan — Antwerp</div>
   </footer>
 
-  <!-- Shared scripts -->
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  <!-- Lenis + Shared JS -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
   <script>
+    // year
+    const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+
+    // mobile nav
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('.nav');
     if (toggle && nav) {
@@ -60,6 +64,47 @@
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     }
+
+    // Lenis smooth scroll (respect reduced motion)
+    const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced && window.Lenis) {
+      const lenis = new Lenis({
+        duration: 1.15, smoothWheel: true, smoothTouch: false,
+        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+      });
+      function raf(t){ lenis.raf(t); requestAnimationFrame(raf) }
+      requestAnimationFrame(raf);
+    }
+
+    // Cursor glow (desktop pointers only)
+    if (matchMedia('(pointer:fine)').matches && !prefersReduced) {
+      const root = document.documentElement;
+      let fadeTimer;
+      function setGlow(x,y){
+        root.style.setProperty('--mx', x + 'px');
+        root.style.setProperty('--my', y + 'px');
+        root.style.setProperty('--glow', 1);
+        clearTimeout(fadeTimer);
+        fadeTimer = setTimeout(()=> root.style.setProperty('--glow', 0), 900);
+      }
+      window.addEventListener('pointermove', e => setGlow(e.clientX, e.clientY), {passive:true});
+      window.addEventListener('pointerleave', () => root.style.setProperty('--glow', 0));
+    }
+
+    // Spotlight on hovered cards
+    (function(){
+      if (!matchMedia('(pointer:fine)').matches) return;
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.addEventListener('pointermove', e => {
+          const r = card.getBoundingClientRect();
+          card.style.setProperty('--cx', (e.clientX - r.left) + 'px');
+          card.style.setProperty('--cy', (e.clientY - r.top) + 'px');
+          card.style.setProperty('--spot', 1);
+        }, {passive:true});
+        card.addEventListener('pointerleave', () => card.style.setProperty('--spot', 0));
+      });
+    })();
   </script>
 </body>
 </html>
