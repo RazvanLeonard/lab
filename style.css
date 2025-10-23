@@ -22,7 +22,7 @@ body{
     radial-gradient(900px 600px at 110% -10%, var(--accent-weak), transparent 55%),
     radial-gradient(800px 600px at -10% 110%, var(--accent-weak), transparent 55%),
     var(--bg);
-  padding-top:env(safe-area-inset-top, 0); /* iOS notch */
+  padding-top:env(safe-area-inset-top, 0);
 }
 
 .container{width:min(1100px, 100%); margin:0 auto; padding:0 20px}
@@ -41,7 +41,6 @@ a{color:inherit; text-decoration:none}
 .brand{font-weight:800; letter-spacing:.8px}
 .brand span{color:var(--accent)}
 
-/* desktop nav */
 .nav{
   display:flex; align-items:center; gap:12px;
 }
@@ -53,7 +52,7 @@ a{color:inherit; text-decoration:none}
 .nav a.active{color:var(--text); background:var(--surface); border-color:var(--line)}
 .nav .btn{ background:var(--accent); color:#0b0c0e; font-weight:700 }
 
-/* mobile toggle (hidden on desktop) */
+/* mobile toggle */
 .nav-toggle{
   display:none; position:relative; width:38px; height:34px;
   border:1px solid var(--line); border-radius:10px; background:var(--surface);
@@ -68,42 +67,44 @@ a{color:inherit; text-decoration:none}
 
 /* ============ HOME — ROCKY HERO ============ */
 .hero--rocky{
-  min-height:125vh;                    /* >100vh so CTA is below fold */
+  min-height:130vh;                    /* bigger than viewport → forces scroll */
   display:flex; align-items:flex-start;
   padding-top:14vh;
 }
 .kicker{
   color:var(--muted);
   letter-spacing:.18em; text-transform:uppercase;
-  font-size:.78rem; margin:0 0 18px; opacity:.85;
+  font-size:.8rem; margin:0 0 18px; opacity:.85;
 }
 .headline{
   margin:0;
   font-weight:800;
   line-height:1.02;
   letter-spacing:-.02em;
-  font-size:clamp(38px, 9vw, 120px);   /* a touch larger on mobile */
+  font-size:clamp(40px, 8vw, 120px);
 }
 .headline span{ color:var(--accent); }
 
-/* default hero links dotted underline, except CTA below */
 .hero--rocky a{ text-decoration:underline dotted }
 
 /* ============ "GET IN TOUCH" ROW ============ */
 .contact-cta{
-  margin: clamp(160px, 26vh, 320px) auto 0; /* push lower so not visible initially */
+  /* Push it further down so it's off-screen on first load */
+  margin: clamp(220px, 38vh, 420px) auto 0;
   display:flex; align-items:flex-end; gap:0.35em;
   font-weight:800; letter-spacing:-.01em;
-  font-size:clamp(28px, 6vw, 72px);         /* drives BOTH text & emoji size */
-  color:#e9eaf0; text-decoration:none !important;
+  font-size:clamp(28px, 5vw, 72px);
+  color:#e9eaf0;
+  text-decoration:none !important;
 }
 .contact-cta .cta-emoji{
   height:1em; width:auto;
-  position:relative; top:0.14em;            /* tiny downward nudge */
+  position:relative; top:0.14em;
   filter: drop-shadow(0 8px 24px rgba(0,0,0,.35));
 }
 .contact-cta span{
-  line-height:1; text-decoration:none;
+  line-height:1;
+  text-decoration:none;
   text-shadow:0 1px 0 rgba(0,0,0,.25);
 }
 
@@ -112,7 +113,6 @@ a{color:inherit; text-decoration:none}
 
 /* ============ MOBILE LAYOUT ============ */
 @media (max-width: 820px){
-  /* show toggle, collapse nav */
   .nav-toggle{ display:block }
   .nav{
     position:fixed; top:68px; right:16px;
@@ -127,30 +127,20 @@ a{color:inherit; text-decoration:none}
   .nav a, .nav .btn{ padding:12px 14px; border-radius:12px }
   .nav .btn{ text-align:center }
 
-  /* headline a tad smaller and tighter on very small screens */
   .headline{ font-size:clamp(36px, 10vw, 96px); line-height:1.06 }
+
+  /* push get in touch even lower on phones */
+  .hero--rocky{
+    min-height:140svh;       /* taller section */
+    padding-top:12svh;
+  }
+  .contact-cta{
+    margin: clamp(200px, 44svh, 460px) auto 0;  /* much lower */
+    font-size: clamp(26px, 7vw, 64px);
+  }
 }
 
-/* extra small phones */
+/* tiny phones */
 @media (max-width: 380px){
   .headline{ font-size:clamp(32px, 11vw, 84px) }
 }
-/* ===== MOBILE: hide CTA below the first screen ===== */
-@media (max-width: 820px){
-  /* use small-viewport units so browser UI bars don't shrink the space */
-  .hero--rocky{
-    min-height:130svh;   /* was 115svh → forces a small scroll on phones */
-    padding-top:12svh;   /* slight top balance */
-  }
-
-  .contact-cta{
-    /* push lower; tweak 32–38svh if you still see it */
-    margin: clamp(140px, 36svh, 380px) auto 0;
-    font-size: clamp(26px, 7vw, 64px);  /* keep proportionate on small screens */
-  }
-
-  .contact-cta .cta-emoji{
-    top:0.14em;  /* keep the same baseline nudge */
-  }
-}
-
