@@ -2,24 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Passions — Moise Razvan</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-  <script>
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-</script>
-
 <body>
   <header class="site-header container">
     <a class="brand" href="index.html">MOISE <span>RAZVAN</span></a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -30,37 +24,47 @@
   </header>
 
   <main class="page container">
-    <section class="grid two">
-      <div class="card">
-        <h2>Hobbies</h2>
-        <ul class="list">
-          <li><strong>Computer installation & hardware</strong> — clean builds, upgrades, stability.</li>
-          <li><strong>Gaming</strong> — teamwork & competitive focus.</li>
-        </ul>
+    <section class="grid two fade-in">
+      <div class="card tap">
+        <h2>Home Lab</h2>
+        <p>I like experimenting with small servers, VLANs, and monitoring. Building stable, neat racks is my jam.</p>
+        <div class="tags"><span>racks</span><span>switching</span><span>pfSense</span><span>Proxmox</span></div>
       </div>
-      <div class="card">
-        <h2>Why IT?</h2>
-        <p>
-          I love digging into new tech and turning problems into working solutions.
-          A tidy rack, a stable network, and happy users — that’s what drives me.
-        </p>
-      </div>
-    </section>
 
-    <section class="card">
-      <h2>Side project ideas</h2>
-      <ul class="bullets">
-        <li>Homelab with virtualization & monitoring.</li>
-        <li>Home network segmentation (VLANs) with proper documentation.</li>
-        <li>Small web app to manage team shifts/tasks.</li>
-      </ul>
+      <div class="card tap">
+        <h2>PC Builds</h2>
+        <p>Custom builds for friends & family — tidy cabling, thermals, and quiet performance.</p>
+        <div class="tags"><span>hardware</span><span>cooling</span><span>cable management</span></div>
+      </div>
+
+      <div class="card tap">
+        <h2>Content & Design</h2>
+        <p>Light video edits in After Effects / Photoshop, plus simple sites like this one.</p>
+        <div class="tags"><span>AE</span><span>PS</span><span>web</span></div>
+      </div>
+
+      <div class="card tap">
+        <h2>Gaming</h2>
+        <p>Co-op and competitive titles. I enjoy tweaking settings & networks for low latency.</p>
+        <div class="tags"><span>FPS</span><span>Racing</span><span>Co-op</span></div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">© <span id="y"></span> Moise Razvan</div>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  </script>
 </body>
 </html>
-
