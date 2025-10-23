@@ -2,24 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Work — Moise Razvan</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-  <script>
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-</script>
-
 <body>
   <header class="site-header container">
     <a class="brand" href="index.html">MOISE <span>RAZVAN</span></a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -30,46 +24,46 @@
   </header>
 
   <main class="page container">
-    <section class="card">
-      <h2>Work experience</h2>
-
-      <article class="job">
+    <section class="card tap fade-in">
+      <h2>Experience</h2>
+      <div class="job">
         <div class="job-head">
-          <h3>Domino’s Pizza — <span>Manager</span></h3>
-          <span class="meta">2018–2025 · Schoten & Deurne</span>
+          <h3>Manager — <span>Domino’s Pizza</span></h3>
+          <span class="meta">2018–2025 · Antwerp</span>
         </div>
         <ul class="bullets">
-          <li>Started at 15 as courier, grew to shift leader and final responsibility for two stores.</li>
-          <li>Handled customer issues, built schedules, managed payroll & stock.</li>
-          <li>Kept daily operations smooth and efficient across both locations.</li>
-          <li>Completed extra courses incl. ServSafe food safety certificate.</li>
+          <li>Started at 15 as courier → shift lead → manager (Domino’s Schoten & Deurne).</li>
+          <li>Ops: staff rosters, payroll, inventory, daily operations.</li>
+          <li>Training, customer problem solving, food safety (ServSafe).</li>
         </ul>
-      </article>
-
-      <article class="job">
+      </div>
+      <div class="job">
         <div class="job-head">
-          <h3>Dumobat — <span>Assistant Estimation / Admin</span></h3>
+          <h3>Assistant Calculation / Admin — <span>Dumobat</span></h3>
           <span class="meta">2022–2024</span>
         </div>
         <ul class="bullets">
-          <li>Started as intern; permanent role after one week.</li>
-          <li>Managed emails; supported site managers & estimation department.</li>
-          <li>Handled invoicing, progress statements, stock and dossiers.</li>
+          <li>Upgraded from intern to staff within a week.</li>
+          <li>Managed emails, assisted with vendor issues & calculation dept.</li>
+          <li>Handled invoices, work orders, and document flows.</li>
         </ul>
-      </article>
+      </div>
     </section>
 
-    <section class="grid two">
-      <div class="card">
-        <h2>Technical focus</h2>
-        <p>Rack assembly & configuration · Windows/Linux basics · Networking & troubleshooting · Documentation & accuracy.</p>
+    <section class="grid two fade-in">
+      <div class="card tap">
+        <h2>Tools I use</h2>
+        <div class="tags">
+          <span>Linux</span><span>Windows Server</span><span>SSH</span>
+          <span>Git</span><span>Docker (basics)</span><span>VLANs</span>
+        </div>
       </div>
-      <div class="card">
-        <h2>Certificates</h2>
-        <ul class="list">
-          <li>ServSafe Food Safety</li>
-          
-        </ul>
+      <div class="card tap">
+        <h2>Strengths</h2>
+        <div class="tags">
+          <span>System Admin</span><span>Networking</span><span>Troubleshooting</span>
+          <span>Team Player</span><span>Communication</span>
+        </div>
       </div>
     </section>
   </main>
@@ -77,7 +71,17 @@
   <footer class="site-footer">
     <div class="container">© <span id="y"></span> Moise Razvan</div>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  </script>
 </body>
 </html>
-
