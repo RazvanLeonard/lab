@@ -4,7 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Work — Moise Razvan</title>
+
+  <link rel="icon" type="image/png" href="assets/moise-emoji-192.png" />
   <link rel="stylesheet" href="style.css" />
+
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
 <body>
   <header class="site-header container">
@@ -26,26 +31,28 @@
   <main class="page container">
     <section class="card tap fade-in">
       <h2>Experience</h2>
+
       <div class="job">
         <div class="job-head">
           <h3>Manager — <span>Domino’s Pizza</span></h3>
           <span class="meta">2018–2025 · Antwerp</span>
         </div>
         <ul class="bullets">
-          <li>Started at 15 as courier → shift lead → manager (Domino’s Schoten & Deurne).</li>
-          <li>Ops: staff rosters, payroll, inventory, daily operations.</li>
-          <li>Training, customer problem solving, food safety (ServSafe).</li>
+          <li>Cycling from courier → shift lead → manager (Schoten & Deurne).</li>
+          <li>Operations: rosters, payroll, inventory, smooth daily flow.</li>
+          <li>Training, customer problem solving, ServSafe food safety.</li>
         </ul>
       </div>
+
       <div class="job">
         <div class="job-head">
           <h3>Assistant Calculation / Admin — <span>Dumobat</span></h3>
           <span class="meta">2022–2024</span>
         </div>
         <ul class="bullets">
-          <li>Upgraded from intern to staff within a week.</li>
-          <li>Managed emails, assisted with vendor issues & calculation dept.</li>
-          <li>Handled invoices, work orders, and document flows.</li>
+          <li>Promoted from intern within a week.</li>
+          <li>Emails, vendor issue support, calculation dept assistance.</li>
+          <li>Invoices, work orders, document handling.</li>
         </ul>
       </div>
     </section>
@@ -58,6 +65,7 @@
           <span>Git</span><span>Docker (basics)</span><span>VLANs</span>
         </div>
       </div>
+
       <div class="card tap">
         <h2>Strengths</h2>
         <div class="tags">
@@ -71,39 +79,5 @@
   <footer class="site-footer">
     <div class="container">© <span id="y"></span> Moise Razvan</div>
   </footer>
-
-  <!-- Shared JS -->
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
-  <script>
-    const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav');
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-    const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReduced && window.Lenis) {
-      const lenis = new Lenis({ duration:1.15, smoothWheel:true, smoothTouch:false,
-        easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
-      function raf(t){ lenis.raf(t); requestAnimationFrame(raf) } requestAnimationFrame(raf);
-    }
-    if (matchMedia('(pointer:fine)').matches && !prefersReduced) {
-      const root = document.documentElement; let f;
-      function setGlow(x,y){ root.style.setProperty('--mx',x+'px'); root.style.setProperty('--my',y+'px');
-        root.style.setProperty('--glow',1); clearTimeout(f); f=setTimeout(()=>root.style.setProperty('--glow',0),900) }
-      window.addEventListener('pointermove', e=>setGlow(e.clientX,e.clientY), {passive:true});
-      window.addEventListener('pointerleave', ()=>root.style.setProperty('--glow',0));
-    }
-    (function(){ if(!matchMedia('(pointer:fine)').matches) return;
-      document.querySelectorAll('.card').forEach(c=>{
-        c.addEventListener('pointermove', e=>{const r=c.getBoundingClientRect();
-          c.style.setProperty('--cx',(e.clientX-r.left)+'px'); c.style.setProperty('--cy',(e.clientY-r.top)+'px'); c.style.setProperty('--spot',1)}, {passive:true});
-        c.addEventListener('pointerleave', ()=>c.style.setProperty('--spot',0));
-      });
-    })();
-  </script>
 </body>
 </html>
