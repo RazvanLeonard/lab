@@ -45,25 +45,17 @@ a{color:inherit; text-decoration:none}
 .link{text-decoration:underline dotted}
 
 /* ============ HEADER / NAV ============ */
+/* Header / Nav — fully blended with the page */
 .site-header{
   position:sticky; top:0; z-index:50;
   display:flex; align-items:center; justify-content:space-between;
   height:68px;
   padding-top:calc(env(safe-area-inset-top, 0));
-  background:linear-gradient(to bottom, rgba(11,12,14,.92), rgba(11,12,14,.65));
-  backdrop-filter:saturate(115%) blur(10px);
+  background:transparent;           /* was: gradient */
+  backdrop-filter:none;             /* remove blur */
   border-bottom:none; box-shadow:none;
 }
-.brand{font-weight:800; letter-spacing:.8px}
-.brand span{color:var(--accent)}
-.nav{ display:flex; align-items:center; gap:12px }
-.nav a{
-  padding:8px 12px; border-radius:12px; color:var(--muted);
-  border:1px solid transparent; transition:.2s ease;
-}
-.nav a:hover{color:var(--text)}
-.nav a.active{color:var(--text); background:var(--surface); border-color:var(--line)}
-.nav .btn{ background:var(--accent); color:#0b0c0e; font-weight:700 }
+
 
 /* hamburger */
 .nav-toggle{
@@ -193,3 +185,4 @@ a{color:inherit; text-decoration:none}
 @media (prefers-reduced-motion: reduce){
   *{ animation:none !important; transition:none !important }
 }
+
