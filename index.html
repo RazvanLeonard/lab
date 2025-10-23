@@ -3,10 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Moise Razvan — Portfolio</title>
   <meta name="theme-color" content="#0b0c0e" />
+  <title>Moise Razvan — Portfolio</title>
+
   <link rel="icon" type="image/png" href="assets/moise-emoji-192.png" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Lenis + App (deferred) -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
 <body>
   <!-- Header (shared) -->
@@ -26,10 +31,10 @@
     </nav>
   </header>
 
-  <!-- Home hero -->
+  <!-- Single-column Rocky-style hero -->
   <main class="hero hero--rocky">
     <div class="container">
-      <p class="kicker">RAZVAN-STYLE INTRO</p>
+      
 
       <h1 class="headline">
         i'm <span>moise razvan</span><br />
@@ -37,7 +42,7 @@
         enthusiast
       </h1>
 
-      <!-- below-the-fold CTA -->
+      <!-- CTA placed well below the fold -->
       <a class="contact-cta" href="mailto:moiserazvanleonard@gmail.com" aria-label="Email Moise">
         <img class="cta-emoji" src="assets/moise-emoji-192.png" alt="" />
         <span>get in touch</span>
@@ -48,63 +53,5 @@
   <footer class="site-footer">
     <div class="container">© <span id="y"></span> Moise Razvan — Antwerp</div>
   </footer>
-
-  <!-- Lenis + Shared JS -->
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
-  <script>
-    // year
-    const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
-
-    // mobile nav
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav');
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-
-    // Lenis smooth scroll (respect reduced motion)
-    const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReduced && window.Lenis) {
-      const lenis = new Lenis({
-        duration: 1.15, smoothWheel: true, smoothTouch: false,
-        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-      });
-      function raf(t){ lenis.raf(t); requestAnimationFrame(raf) }
-      requestAnimationFrame(raf);
-    }
-
-    // Cursor glow (desktop pointers only)
-    if (matchMedia('(pointer:fine)').matches && !prefersReduced) {
-      const root = document.documentElement;
-      let fadeTimer;
-      function setGlow(x,y){
-        root.style.setProperty('--mx', x + 'px');
-        root.style.setProperty('--my', y + 'px');
-        root.style.setProperty('--glow', 1);
-        clearTimeout(fadeTimer);
-        fadeTimer = setTimeout(()=> root.style.setProperty('--glow', 0), 900);
-      }
-      window.addEventListener('pointermove', e => setGlow(e.clientX, e.clientY), {passive:true});
-      window.addEventListener('pointerleave', () => root.style.setProperty('--glow', 0));
-    }
-
-    // Spotlight on hovered cards
-    (function(){
-      if (!matchMedia('(pointer:fine)').matches) return;
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        card.addEventListener('pointermove', e => {
-          const r = card.getBoundingClientRect();
-          card.style.setProperty('--cx', (e.clientX - r.left) + 'px');
-          card.style.setProperty('--cy', (e.clientY - r.top) + 'px');
-          card.style.setProperty('--spot', 1);
-        }, {passive:true});
-        card.addEventListener('pointerleave', () => card.style.setProperty('--spot', 0));
-      });
-    })();
-  </script>
 </body>
 </html>
