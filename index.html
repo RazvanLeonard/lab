@@ -9,16 +9,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header (shared) -->
   <header class="site-header container">
     <a class="brand" href="index.html">MOISE <span>RAZVAN</span></a>
 
-    <!-- Mobile nav toggle -->
     <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
 
-    <!-- Nav -->
     <nav class="nav">
       <a class="active" href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -31,7 +29,7 @@
   <!-- Home hero -->
   <main class="hero hero--rocky">
     <div class="container">
-      
+     
 
       <h1 class="headline">
         i'm <span>moise razvan</span><br />
@@ -39,7 +37,7 @@
         enthusiast
       </h1>
 
-      <!-- Below-the-fold CTA -->
+      <!-- below-the-fold CTA -->
       <a class="contact-cta" href="mailto:moiserazvanleonard@gmail.com" aria-label="Email Moise">
         <img class="cta-emoji" src="assets/moise-emoji-192.png" alt="" />
         <span>get in touch</span>
@@ -51,18 +49,17 @@
     <div class="container">© <span id="y"></span> Moise Razvan — Antwerp</div>
   </footer>
 
+  <!-- Shared scripts -->
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   <script>
-    // Year
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Mobile nav toggle
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('.nav');
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
   </script>
 </body>
 </html>
-
