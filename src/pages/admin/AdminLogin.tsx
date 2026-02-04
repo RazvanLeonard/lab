@@ -46,9 +46,6 @@ export function AdminLogin() {
             Login
           </button>
         </form>
-        <p className="mt-4 text-center text-xs text-muted">
-          Default PIN: 1234 (set VITE_ADMIN_PIN in .env to change)
-        </p>
       </div>
     </div>
   )

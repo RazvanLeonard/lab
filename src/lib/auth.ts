@@ -13,6 +13,6 @@ export function logoutAdmin(): void {
 }
 
 export function checkAdminPin(pin: string): boolean {
-  const expected = import.meta.env.VITE_ADMIN_PIN || '1234'
+  const expected = import.meta.env.VITE_ADMIN_PIN || '1515'
   return pin === expected
 }
