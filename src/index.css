@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    @apply min-h-screen font-sans text-text antialiased;
+    background:
+      radial-gradient(900px 600px at 110% -10%, rgba(0,183,255,0.1), transparent 55%),
+      radial-gradient(800px 600px at -10% 110%, rgba(0,183,255,0.1), transparent 55%),
+      theme('colors.bg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: env(safe-area-inset-top, 0);
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+}
+
+/* Cursor glow - desktop only */
+@media (pointer: fine) {
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      560px at var(--mx, 50%) var(--my, 50%),
+      rgba(0, 183, 255, 0.18),
+      rgba(0, 183, 255, 0) 60%
+    );
+    opacity: var(--glow, 0);
+    transition: opacity 0.35s ease;
+    mix-blend-mode: screen;
+    z-index: 1;
+  }
+
+  .card-hover-glow,
+  .nav-z,
+  .brand-z {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    display: none !important;
+  }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

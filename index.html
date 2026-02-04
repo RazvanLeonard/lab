@@ -5,53 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#0b0c0e" />
   <title>Moise Razvan — Portfolio</title>
-
-  <link rel="icon" type="image/png" href="assets/moise-emoji-192.png" />
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Lenis + App (deferred) -->
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js" defer></script>
-  <script src="app.js" defer></script>
+  <link rel="icon" type="image/png" href="/assets/moise-emoji-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header (shared) -->
-  <header class="site-header container">
-    <a class="brand" href="index.html">MOISE <span>RAZVAN</span></a>
-
-    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
-
-    <nav class="nav">
-      <a class="active" href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="work.html">Work</a>
-      <a href="passions.html">Passions</a>
-      <a class="btn" href="mailto:moiserazvanleonard@gmail.com">Contact</a>
-    </nav>
-  </header>
-
-  <!-- Single-column Rocky-style hero -->
-  <main class="hero hero--rocky">
-    <div class="container">
-      
-
-      <h1 class="headline">
-        i'm <span>moise razvan</span><br />
-        system &amp; network<br />
-        enthusiast
-      </h1>
-
-      <!-- CTA placed well below the fold -->
-      <a class="contact-cta" href="mailto:moiserazvanleonard@gmail.com" aria-label="Email Moise">
-        <img class="cta-emoji" src="assets/moise-emoji-192.png" alt="" />
-        <span>get in touch</span>
-      </a>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">© <span id="y"></span> Moise Razvan — Antwerp</div>
-  </footer>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
