@@ -9,12 +9,24 @@ src/
 ├── components/
 │   ├── layout/     # Header, Footer (global)
 │   └── ui/         # Card, Tags, FadeIn (reusable)
-├── pages/          # Home, About, Work, Passions
+├── pages/          # Home, About, Work, Passions, Projects
+├── pages/admin/    # Admin panel, Project form
+├── lib/            # projects, auth
+├── data/           # projects.json (fallback)
 ├── hooks/          # useCursorGlow, useLenis
 ├── App.tsx
 ├── main.tsx
 └── index.css
 ```
+
+## Admin Panel
+
+- **URL:** `/admin` (login at `/admin/login`)
+- **Default PIN:** 1234 (set `VITE_ADMIN_PIN` in `.env` to change)
+- Add projects with title, company, dates, location, description, images (URLs), tags
+- Projects are stored in localStorage as draft
+- Click **Export JSON** to download — replace `src/data/projects.json` and push to publish
+- For images: add files to `public/projects/` and use `/projects/filename.jpg` as URL
 
 ## Commands
 
@@ -24,4 +36,4 @@ src/
 
 ## Deploy (GitHub Pages)
 
-Build outputs to `dist/`. For GitHub Pages with custom domain (www.moiselabs.dev), deploy the `dist` contents to the `gh-pages` branch or configure GitHub Actions.
+Build outputs to `dist/`. GitHub Actions deploys on push to `main`.

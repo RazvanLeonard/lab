@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sample-1",
+    "title": "Network Infrastructure",
+    "company": "Company A",
+    "dateStart": "2024-01",
+    "dateEnd": "2024-06",
+    "location": "Antwerp",
+    "description": "Designed and implemented a scalable network infrastructure including VLAN segmentation, firewall rules, and monitoring setup.",
+    "imageUrls": [],
+    "tags": ["Networking", "Cisco", "pfSense"],
+    "createdAt": "2024-06-01"
+  },
+  {
+    "id": "sample-2",
+    "title": "Server Migration",
+    "company": "Company B",
+    "dateStart": "2024-03",
+    "dateEnd": "2024-05",
+    "location": "Remote",
+    "description": "Migrated legacy servers to Proxmox virtualization platform with zero downtime.",
+    "imageUrls": [],
+    "tags": ["Proxmox", "Linux", "Virtualization"],
+    "createdAt": "2024-05-15"
+  }
+]
