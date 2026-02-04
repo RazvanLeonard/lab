@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getProjects, saveProjectsDraft } from '@/lib/projects'
+import { getProjects, saveProjectsDraft, clearProjectsDraft } from '@/lib/projects'
 import { isAdminAuthenticated, logoutAdmin } from '@/lib/auth'
 import { ProjectForm } from './ProjectForm'
 import type { Project } from '@/types/project'
@@ -63,7 +63,12 @@ export function AdminPanel() {
     URL.revokeObjectURL(url)
   }
 
-  const handleUseDraft = () => {
+  const handleReloadFromStorage = () => {
+    setProjects(getProjects())
+  }
+
+  const handleLoadFromFile = () => {
+    clearProjectsDraft()
     setProjects(getProjects())
   }
 
@@ -122,10 +127,16 @@ export function AdminPanel() {
                 Export JSON
               </button>
               <button
-                onClick={handleUseDraft}
+                onClick={handleReloadFromStorage}
                 className="rounded-lg border border-line bg-surface-2 px-5 py-2.5 text-sm text-muted hover:bg-surface transition-colors"
               >
-                Reload from storage
+                Reload draft
+              </button>
+              <button
+                onClick={handleLoadFromFile}
+                className="rounded-lg border border-accent/50 bg-accent-weak/30 px-5 py-2.5 text-sm text-accent hover:bg-accent-weak/50 transition-colors"
+              >
+                Load from file (reset draft)
               </button>
             </div>
 

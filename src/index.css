@@ -49,6 +49,55 @@
   }
 }
 
+/* Project detail overlay animations */
+@keyframes projectFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes projectSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes projectScaleIn {
+  from { opacity: 0; transform: scale(1.05); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes projectFadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gallery horizontal scroll */
+.gallery-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+.gallery-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.gallery-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.gallery-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+}
+.gallery-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Gallery marquee - continuous auto-scroll */
+@keyframes galleryMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.gallery-marquee-track {
+  animation: galleryMarquee 25s linear infinite;
+}
+.gallery-marquee-track.paused {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   body::before {
     display: none !important;

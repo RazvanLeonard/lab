@@ -1,26 +1,19 @@
 [
   {
-    "id": "sample-1",
-    "title": "Network Infrastructure",
-    "company": "Company A",
-    "dateStart": "2024-01",
-    "dateEnd": "2024-06",
+    "id": "oog-baron-joostensstraat",
+    "title": "Oogcentrum Baron Joostensstraat",
+    "company": "Oogcentrum Baron Joostensstraat",
+    "dateStart": "2025-10",
+    "dateEnd": "2026-02",
     "location": "Antwerp",
-    "description": "Designed and implemented a scalable network infrastructure including VLAN segmentation, firewall rules, and monitoring setup.",
-    "imageUrls": [],
-    "tags": ["Networking", "Cisco", "pfSense"],
-    "createdAt": "2024-06-01"
-  },
-  {
-    "id": "sample-2",
-    "title": "Server Migration",
-    "company": "Company B",
-    "dateStart": "2024-03",
-    "dateEnd": "2024-05",
-    "location": "Remote",
-    "description": "Migrated legacy servers to Proxmox virtualization platform with zero downtime.",
-    "imageUrls": [],
-    "tags": ["Proxmox", "Linux", "Virtualization"],
-    "createdAt": "2024-05-15"
+    "description": "An ophthalmologist opened a new clinic with no existing infrastructure. From initial consultation to full deployment: I assessed her needs, proposed solutions, and delivered the complete setup. She required 2 PCs for the clinic, a website, and a cabinet application to track patient flow and staff updates. For the server, I chose a compact Synology NAS instead of a traditional rack server — it fits the clinic's scale, keeps patient data on-premises (GDPR-friendly), provides Synology Drive for secure shared storage, and can host the site and backend with minimal maintenance. On-site, I physically assembled and configured the PCs (GIGABYTE motherboards, be quiet! coolers, Samsung 980 SSD, Corsair PSU), installed Windows 11, and set up the Synology DSM and infrastructure. The website offers online appointment booking with doctor selection, email confirmations and reminders, and cancellation links. The admin panel provides a calendar view, patient management with search and notes (e.g. \"eye drops applied, wait 10 min\"), doctor and user management, and slot scheduling. Secretaries can add real-time updates per patient, and the system supports check-in flow for patients entering the clinic.",
+    "imageUrls": [
+      "/projects/oog-baron-2.png",
+      "/projects/oog-baron-1.png",
+      "/projects/oog-baron-3.png",
+      "/projects/oog-baron-4-synology.png"
+    ],
+    "tags": ["PHP", "Node.js", "MongoDB", "Synology", "Hardware", "Windows", "Network", "Full-stack"],
+    "createdAt": "2026-02-04"
   }
 ]
