@@ -23,7 +23,7 @@ function ProjectPreviewCard({
         >
           <div className="flex h-full flex-col space-y-3">
             {mainImage && !imageError ? (
-              <div className="aspect-video overflow-hidden rounded-lg border border-white/10 bg-slate-950/65 transition-transform duration-300 group-hover:scale-[1.04]">
+              <div className="aspect-video overflow-hidden rounded-lg border border-white/10 bg-slate-950/65 transition-transform duration-300 group-hover:scale-[1.08]">
                 <img
                   src={mainImage}
                   alt=""
@@ -78,7 +78,7 @@ function ProjectGallery({
       <img
         src={url}
         alt=""
-        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.05]"
+        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.08]"
         onError={() => onImageError(i)}
       />
     </div>
@@ -171,7 +171,7 @@ function ProjectDetailPage({
                 <img
                   src={mainImage}
                   alt=""
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.05]"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.08]"
                   style={{ animation: 'projectScaleIn 0.5s ease-out 0.1s both' }}
                   onError={() =>
                     setImageErrors((prev) => ({ ...prev, [0]: true }))
