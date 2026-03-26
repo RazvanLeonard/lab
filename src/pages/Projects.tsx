@@ -23,7 +23,7 @@ function ProjectPreviewCard({
         >
           <div className="flex h-full flex-col space-y-3">
             {mainImage && !imageError ? (
-              <div className="aspect-video overflow-hidden rounded-lg border border-white/10 bg-slate-950/65 transition-transform duration-300 group-hover:scale-[1.02]">
+              <div className="aspect-video overflow-hidden rounded-lg border border-white/10 bg-slate-950/65 transition-transform duration-300 group-hover:scale-[1.04]">
                 <img
                   src={mainImage}
                   alt=""
@@ -72,13 +72,13 @@ function ProjectGallery({
   const imageEl = (url: string, i: number, key: number) => (
     <div
       key={key}
-      className="panel-dark flex-shrink-0 overflow-hidden rounded-xl shadow-lg"
+      className="panel-dark group flex-shrink-0 overflow-hidden rounded-xl shadow-lg transition-shadow duration-300 group-hover:shadow-xl"
       style={{ width: 280, aspectRatio: '16/10' }}
     >
       <img
         src={url}
         alt=""
-        className="h-full w-full object-cover"
+        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.05]"
         onError={() => onImageError(i)}
       />
     </div>
@@ -167,11 +167,11 @@ function ProjectDetailPage({
           <article className="panel-dark overflow-hidden rounded-[22px] p-0">
             {/* Hero image */}
             {mainImage && !imageErrors[0] && (
-              <div className="relative h-[46vh] min-h-[300px] w-full overflow-hidden">
+              <div className="group relative h-[46vh] min-h-[300px] w-full overflow-hidden">
                 <img
                   src={mainImage}
                   alt=""
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.05]"
                   style={{ animation: 'projectScaleIn 0.5s ease-out 0.1s both' }}
                   onError={() =>
                     setImageErrors((prev) => ({ ...prev, [0]: true }))
