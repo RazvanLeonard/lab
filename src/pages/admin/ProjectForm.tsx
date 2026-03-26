@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react'
+import { useState, FormEvent, ChangeEvent } from 'react'
 import type { Project } from '@/types/project'
 import { generateId } from '@/lib/projects'
 
@@ -29,6 +29,22 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
 
   const removeImage = (i: number) => {
     setImageUrls((prev) => prev.filter((_, idx) => idx !== i))
+  }
+
+  const handleFilesPicked = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? [])
+    if (files.length === 0) return
+
+    const mapped = files.map((file) => `/projects/${file.name}`)
+    setImageUrls((prev) => {
+      const next = [...prev]
+      mapped.forEach((url) => {
+        if (!next.includes(url)) next.push(url)
+      })
+      return next
+    })
+
+    e.currentTarget.value = ''
   }
 
   const handleSubmit = (e: FormEvent) => {
@@ -81,21 +97,21 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
         <div>
           <label className="mb-2 block text-sm font-medium text-muted">Date Start *</label>
           <input
-            type="text"
+            type="month"
             value={dateStart}
             onChange={(e) => setDateStart(e.target.value)}
             className={inputClass}
-            placeholder="e.g. 2024-01"
+            placeholder="2024-01"
           />
         </div>
         <div>
           <label className="mb-2 block text-sm font-medium text-muted">Date End *</label>
           <input
-            type="text"
+            type="month"
             value={dateEnd}
             onChange={(e) => setDateEnd(e.target.value)}
             className={inputClass}
-            placeholder="e.g. 2024-06"
+            placeholder="2024-06"
           />
         </div>
       </div>
@@ -124,7 +140,7 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
 
       <div>
         <label className="mb-2 block text-sm font-medium text-muted">Images (URLs)</label>
-        <div className="flex gap-2">
+        <div className="mb-3 flex flex-col gap-2 md:flex-row">
           <input
             type="url"
             value={newImageUrl}
@@ -136,25 +152,47 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
           <button
             type="button"
             onClick={addImage}
-            className="chip-dark shrink-0 rounded-lg px-4 py-2.5 text-text transition-colors hover:bg-slate-800/70"
+            className="chip-dark shrink-0 rounded-lg px-4 py-2.5 text-text transition-colors hover:bg-slate-800/70 md:min-w-[110px]"
           >
             Add
           </button>
         </div>
+        <div className="mb-3 flex flex-wrap gap-2">
+          <label
+            htmlFor="project-image-files"
+            className="chip-dark cursor-pointer rounded-lg px-4 py-2.5 text-sm font-medium text-text transition-colors hover:bg-slate-800/70"
+          >
+            Select image files
+          </label>
+          <input
+            id="project-image-files"
+            type="file"
+            multiple
+            accept="image/*"
+            className="hidden"
+            onChange={handleFilesPicked}
+          />
+          <span className="text-xs text-muted">
+            Tip: copy selected files to <code className="rounded bg-slate-800/70 px-1">public/projects/</code>.
+          </span>
+        </div>
         {imageUrls.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-2">
+          <div className="mt-2 grid gap-2 sm:grid-cols-2">
             {imageUrls.map((url, i) => (
-              <div key={i} className="group relative">
-                <img
-                  src={url}
-                  alt=""
-                  className="h-16 w-24 rounded object-cover"
-                  onError={(e) => (e.currentTarget.style.display = 'none')}
-                />
+              <div key={i} className="group panel-dark relative flex items-center gap-3 rounded-lg px-3 py-2">
+                <div className="h-14 w-20 overflow-hidden rounded bg-slate-900/55">
+                  <img
+                    src={url}
+                    alt=""
+                    className="h-full w-full object-cover"
+                    onError={(e) => (e.currentTarget.style.display = 'none')}
+                  />
+                </div>
+                <p className="min-w-0 flex-1 truncate text-xs text-muted">{url}</p>
                 <button
                   type="button"
                   onClick={() => removeImage(i)}
-                  className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500/90 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="flex h-6 w-6 items-center justify-center rounded-full bg-red-500/85 text-xs text-white opacity-80 transition-opacity hover:opacity-100"
                 >
                   ×
                 </button>
@@ -178,9 +216,9 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
       <div className="flex gap-3 pt-2">
         <button
           type="submit"
-          className="rounded-lg bg-accent px-6 py-2.5 font-semibold text-bg hover:bg-accent/90 transition-colors"
+          className="rounded-lg bg-accent px-6 py-2.5 font-semibold text-bg transition-colors hover:bg-accent/90"
         >
-          {project ? 'Save' : 'Add Project'}
+          {project ? 'Save project' : 'Create project'}
         </button>
         <button
           type="button"

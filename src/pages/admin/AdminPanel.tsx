@@ -75,10 +75,13 @@ export function AdminPanel() {
   if (!isAdminAuthenticated()) return null
 
   return (
-    <main className="min-h-screen bg-bg py-10">
+    <main className="min-h-screen bg-transparent py-10">
       <div className="container mx-auto max-w-[900px] px-5">
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-          <h1 className="text-2xl font-bold text-text">Admin Projects</h1>
+          <div>
+            <h1 className="text-2xl font-bold text-text">Admin Projects</h1>
+            <p className="text-sm text-muted">Manage projects in the same style as your public site.</p>
+          </div>
           <div className="flex flex-wrap gap-2">
             <button
               onClick={handleLogout}
@@ -98,7 +101,7 @@ export function AdminPanel() {
         </div>
 
         {showForm ? (
-          <div className="panel-dark rounded-card p-6">
+          <div className="panel-dark rounded-card p-6 md:p-7">
             <h2 className="mb-6 text-lg font-semibold text-text">
               {editing ? 'Edit Project' : 'Add Project'}
             </h2>
@@ -116,9 +119,9 @@ export function AdminPanel() {
             <div className="mb-6 flex flex-wrap gap-3">
               <button
                 onClick={() => setShowForm(true)}
-                className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-bg hover:bg-accent/90 transition-colors"
+                className="rounded-lg bg-accent px-5 py-2.5 font-semibold text-bg transition-colors hover:bg-accent/90"
               >
-                + Add Project
+                + New project
               </button>
               <button
                 onClick={handleExport}
@@ -134,7 +137,7 @@ export function AdminPanel() {
               </button>
               <button
                 onClick={handleLoadFromFile}
-                className="rounded-lg border border-accent/50 bg-accent-weak/30 px-5 py-2.5 text-sm text-accent hover:bg-accent-weak/50 transition-colors"
+                className="chip-dark rounded-lg px-5 py-2.5 text-sm text-accent transition-colors hover:bg-slate-800/70"
               >
                 Load from file (reset draft)
               </button>
