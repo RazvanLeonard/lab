@@ -23,11 +23,13 @@ function AppLayout() {
         <span className="particle particle-5" />
 
         <span className="animated-triangle triangle-1" />
+        <span className="animated-triangle triangle-2" />
         <span className="animated-circle circle-1" />
+        <span className="animated-circle circle-2" />
         <span className="animated-wave wave-1" />
       </div>
 
-      <div className="bg-global-gradient relative z-10">
+      <div className="relative z-10">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
