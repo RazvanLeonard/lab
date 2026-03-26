@@ -43,7 +43,7 @@ function ProjectPreviewCard({
               </p>
             </div>
             <p className="mt-auto pt-2 text-sm text-muted opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-              View project →
+              Open project details →
             </p>
           </div>
         </button>
@@ -72,7 +72,7 @@ function ProjectGallery({
   const imageEl = (url: string, i: number, key: number) => (
     <div
       key={key}
-      className="flex-shrink-0 overflow-hidden rounded-xl border border-white/10 bg-slate-950/65 shadow-lg"
+      className="panel-dark flex-shrink-0 overflow-hidden rounded-xl shadow-lg"
       style={{ width: 280, aspectRatio: '16/10' }}
     >
       <img
@@ -161,7 +161,7 @@ function ProjectDetailPage({
         </button>
 
         <div
-          className="project-sheet-scroll relative mx-auto h-[calc(100vh-2rem)] max-w-[1320px] overflow-y-auto rounded-[28px] border border-white/20 bg-slate-900/35 p-4 shadow-[0_30px_90px_rgba(2,6,23,0.62)] backdrop-blur-2xl md:p-6"
+          className="project-sheet-scroll panel-dark relative mx-auto h-[calc(100vh-2rem)] max-w-[1320px] overflow-y-auto rounded-[28px] p-4 md:p-6"
           onClick={(e) => e.stopPropagation()}
         >
           <article className="panel-dark overflow-hidden rounded-[22px] p-0">
@@ -183,7 +183,7 @@ function ProjectDetailPage({
             )}
 
             {/* Content */}
-            <div className="project-content-reveal relative -mt-8 rounded-t-[24px] border-t border-white/10 bg-slate-900/35 px-6 pb-10 pt-8 backdrop-blur-xl md:-mt-10 md:px-10 md:pb-12 md:pt-10">
+            <div className="project-content-reveal relative -mt-8 rounded-t-[24px] border-t border-white/10 bg-slate-900/24 px-6 pb-10 pt-8 backdrop-blur-xl md:-mt-10 md:px-10 md:pb-12 md:pt-10">
             {/* Header */}
             <header className="mb-8" style={{ animation: 'projectFadeInUp 0.5s ease-out 0.2s both' }}>
               <button
@@ -191,7 +191,7 @@ function ProjectDetailPage({
                 onClick={onClose}
                 className="mb-6 inline-flex items-center gap-2 text-sm text-slate-300 transition-colors hover:text-white"
               >
-                ← Back to projects
+                ← Back to project list
               </button>
               <h1
                 id="project-title"

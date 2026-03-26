@@ -6,7 +6,7 @@
     "dateStart": "2025-10",
     "dateEnd": "2026-02",
     "location": "Antwerp",
-    "description": "A new ophthalmology clinic in Antwerp needed a full IT setup from scratch. I planned and delivered the complete environment: 2 clinic PCs, a website, and an internal cabinet app for patient flow and staff updates. For the server side, I used a compact Synology NAS because it fits the clinic size, keeps data on-premises, and is easy to maintain. I assembled and configured the PCs on-site, installed Windows 11, and set up Synology DSM with shared storage. The website includes appointment booking, doctor selection, email confirmations, reminders, and cancellation links. The admin side includes a calendar view, patient search with notes, doctor and user management, and slot scheduling. Staff can update patient status in real time during check-in and treatment flow.",
+    "description": "This clinic started with no IT setup, so I handled the project from planning to delivery. I installed and configured two clinic PCs, built the website, and set up an internal app for patient flow and staff updates. I chose a compact Synology NAS to keep data on-site and make daily maintenance simple. On location, I assembled the hardware, installed Windows 11, and configured Synology DSM with shared storage and backups. The website supports online appointments, doctor selection, email confirmations, reminders, and cancellations. The admin area includes calendar scheduling, patient notes, user management, and real-time status updates during check-in and treatment.",
     "imageUrls": [
       "/projects/oog-baron-2.png",
       "/projects/oog-baron-1.png",
