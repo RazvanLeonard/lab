@@ -96,7 +96,7 @@ function ProjectGallery({
             'h-full w-full rounded-xl object-cover',
             'transition-[transform,filter,opacity] duration-250 ease-out',
             // Keep shape and only enlarge slightly within the gallery area.
-            isHovered ? 'transform scale-[1.18]' : 'transform scale-[0.98]',
+            isHovered ? 'transform scale-[1.3]' : 'transform scale-[1]',
             shouldBlurOthers ? 'blur-[4px] opacity-30 saturate-85' : 'blur-0 opacity-100',
           ].join(' ')}
         />
