@@ -34,7 +34,7 @@ export function Card({ children, className = '' }: CardProps) {
       <div
         className="pointer-events-none absolute -inset-0.5 mix-blend-screen opacity-[var(--spot)] transition-opacity duration-200"
         style={{
-          background: `radial-gradient(260px circle at var(--cx) var(--cy), rgba(96,165,250,0.2), rgba(96,165,250,0) 62%)`,
+          background: `radial-gradient(280px circle at var(--cx) var(--cy), rgba(147,197,253,0.16), rgba(147,197,253,0) 64%)`,
         }}
         aria-hidden
       />
