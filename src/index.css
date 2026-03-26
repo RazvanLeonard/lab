@@ -237,6 +237,16 @@
   outline: none;
 }
 
+.project-sheet-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.project-sheet-scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 @keyframes starTwinkle {
   0%, 100% { opacity: 0.2; transform: scale(1); }
   50% { opacity: 0.85; transform: scale(1.6); }

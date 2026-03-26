@@ -161,7 +161,7 @@ function ProjectDetailPage({
         </button>
 
         <div
-          className="relative mx-auto h-[calc(100vh-2rem)] max-w-[1320px] overflow-y-auto rounded-[28px] border border-white/20 bg-slate-900/35 p-4 shadow-[0_30px_90px_rgba(2,6,23,0.62)] backdrop-blur-2xl md:p-6"
+          className="project-sheet-scroll relative mx-auto h-[calc(100vh-2rem)] max-w-[1320px] overflow-y-auto rounded-[28px] border border-white/20 bg-slate-900/35 p-4 shadow-[0_30px_90px_rgba(2,6,23,0.62)] backdrop-blur-2xl md:p-6"
           onClick={(e) => e.stopPropagation()}
         >
           <article className="panel-dark overflow-hidden rounded-[22px] p-0">
@@ -178,11 +178,12 @@ function ProjectDetailPage({
                   }
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent via-slate-950/55 to-slate-950/90" />
               </div>
             )}
 
             {/* Content */}
-            <div className="px-6 pb-10 pt-8 md:px-10 md:pb-12 md:pt-10">
+            <div className="relative -mt-8 rounded-t-[24px] border-t border-white/10 bg-slate-900/35 px-6 pb-10 pt-8 backdrop-blur-xl md:-mt-10 md:px-10 md:pb-12 md:pt-10">
             {/* Header */}
             <header className="mb-8" style={{ animation: 'projectFadeInUp 0.5s ease-out 0.2s both' }}>
               <button
