@@ -106,7 +106,7 @@ export function Header() {
       </header>
 
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[120] md:hidden" role="dialog" aria-modal="true">
+        <div className="apple-menu-root fixed inset-0 z-[120] md:hidden" role="dialog" aria-modal="true">
           <button
             className="apple-menu-backdrop absolute inset-0 bg-black/72 backdrop-blur-xl"
             onClick={() => setMobileMenuOpen(false)}
