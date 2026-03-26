@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Card, Tags, Tag, FadeIn } from '@/components/ui'
 import { getProjects } from '@/lib/projects'
 import type { Project } from '@/types/project'
@@ -63,6 +63,8 @@ function ProjectGallery({
 }) {
   const [isPaused, setIsPaused] = useState(false)
   const [hoveredKey, setHoveredKey] = useState<number | null>(null)
+  const trackRef = useRef<HTMLDivElement | null>(null)
+  const [marqueeDuration, setMarqueeDuration] = useState(25)
 
   const validImages = imageUrls
     .map((url, i) => ({ url, i }))
@@ -73,12 +75,18 @@ function ProjectGallery({
   const imageEl = (url: string, i: number, key: number) => {
     const isHovered = hoveredKey === key
     const shouldBlurOthers = hoveredKey !== null && hoveredKey !== key
+    const baseWidth = 420
+    const activeWidth = 560
 
     return (
       <div
         key={key}
         className="panel-dark relative flex-shrink-0 overflow-hidden rounded-xl shadow-lg transition-shadow duration-300"
-        style={{ width: 420, aspectRatio: '16/10' }}
+        style={{
+          width: isHovered ? activeWidth : baseWidth,
+          aspectRatio: '16/10',
+          transition: 'width 250ms ease-out',
+        }}
         onPointerEnter={() => {
           setIsPaused(true)
           setHoveredKey(key)
@@ -94,15 +102,39 @@ function ProjectGallery({
           onError={() => onImageError(i)}
           className={[
             'h-full w-full rounded-xl object-cover',
-            'transition-[transform,filter,opacity] duration-250 ease-out',
-            // Keep shape and only enlarge slightly within the gallery area.
-            isHovered ? 'transform scale-[1.3]' : 'transform scale-[1]',
-            shouldBlurOthers ? 'blur-[4px] opacity-30 saturate-85' : 'blur-0 opacity-100',
+            'transition-[filter,opacity,transform] duration-250 ease-out',
+            // Now the "size" comes from the frame (wrapper width), not from a big image zoom.
+            isHovered ? 'transform scale-[1.04]' : 'transform scale-[1.0]',
+            shouldBlurOthers ? 'blur-[4px] opacity-35 saturate-85' : 'blur-0 opacity-100',
           ].join(' ')}
         />
       </div>
     )
   }
+
+  useEffect(() => {
+    const el = trackRef.current
+    if (!el) return
+
+    // Normalize marquee speed: keep roughly constant px/sec across different projects.
+    // (Animation is translateX(-50%), so distance ~ half of track width.)
+    const PX_PER_SEC = 42
+
+    const compute = () => {
+      const w = el.getBoundingClientRect().width
+      if (!w || w <= 0) return
+
+      const distance = w / 2
+      const duration = distance / PX_PER_SEC
+      const clamped = Math.min(45, Math.max(14, duration))
+      setMarqueeDuration(clamped)
+    }
+
+    compute()
+    const ro = new ResizeObserver(compute)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [validImages.length])
 
   return (
     <div className="mb-10" style={{ animation: 'projectFadeInUp 0.5s ease-out 0.35s both' }}>
@@ -111,8 +143,9 @@ function ProjectGallery({
       </h3>
       <div className="relative overflow-hidden">
         <div
+          ref={trackRef}
           className={`gallery-marquee-track flex gap-8 ${isPaused ? 'paused' : ''}`}
-          style={{ width: 'max-content' }}
+          style={{ width: 'max-content', animationDuration: `${marqueeDuration}s` }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
