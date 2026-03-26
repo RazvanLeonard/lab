@@ -17,7 +17,7 @@ export function ProjectGallery({
 
   const validImages = imageUrls
     .map((url, i) => ({ url, i }))
-    .filter(({ i }) => !imageErrors[i + 1])
+    .filter(({ i }) => !imageErrors[i])
 
   useEffect(() => {
     if (!lightboxUrl) return

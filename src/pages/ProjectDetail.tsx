@@ -20,22 +20,9 @@ export function ProjectDetail() {
   if (!id) return <Navigate to="/projects" replace />
   if (!project) return <Navigate to="/projects" replace />
 
-  const mainImage = project.imageUrls[0]
-
   return (
     <main className="w-full bg-transparent pb-20 pt-0">
-      {mainImage && !imageErrors[0] && (
-        <div className="relative w-full overflow-hidden">
-          <img
-            src={mainImage}
-            alt=""
-            className="h-[min(52vh,620px)] w-full object-cover md:h-[min(56vh,680px)]"
-            onError={() => setImageErrors((prev) => ({ ...prev, [0]: true }))}
-          />
-        </div>
-      )}
-
-      <div className="mx-auto max-w-[1100px] space-y-12 px-5 pt-10 md:px-6 md:pt-12">
+      <div className="mx-auto max-w-[1100px] space-y-12 px-5 py-10 md:px-6 md:py-12">
         <Link
           to="/projects"
           className="inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
@@ -60,12 +47,12 @@ export function ProjectDetail() {
           </p>
         </div>
 
-        {project.imageUrls.length > 1 && (
+        {project.imageUrls.length > 0 && (
           <ProjectGallery
-            imageUrls={project.imageUrls.slice(1)}
+            imageUrls={project.imageUrls}
             imageErrors={imageErrors}
             onImageError={(i) =>
-              setImageErrors((prev) => ({ ...prev, [i + 1]: true }))
+              setImageErrors((prev) => ({ ...prev, [i]: true }))
             }
           />
         )}
