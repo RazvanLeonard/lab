@@ -1,5 +1,44 @@
 [
   {
+    "id": "my-rack-42u-homelab",
+    "title": "My Rack (42U Homelab)",
+    "company": "Homelab",
+    "dateStart": "2025-11",
+    "dateEnd": "2025-12",
+    "location": "Home",
+    "description": "My rack is a fully self-built 42U homelab that I built from scratch together with my father. The goal was to create an organized, maintainable infrastructure where networking, virtualization, monitoring, and daily services are managed in one controlled setup.\n\nThe system combines networking, virtualization, storage, monitoring, and security into a single homelab environment. An integrated UniFi dashboard runs on an embedded display, so I can follow the live network status and manage the system in real time. Security camera monitoring is also available through the same interface.\n\nThe rack setup includes:\n- UniFi CloudKey Gen2 Plus for centralized UniFi controller management.\n- A UDM Pro-Max router connected to the ONT fiber line.\n- Proxmox (single-node) for virtualization.\n- SFP+ switches (10 Gb/s) for fast and secure network segmentation.\n- PoE switches for Wi-Fi access points, cameras, and sensors.\n- Patch panels and structured cabling for a clean and serviceable layout.\n- An UPS module to keep the most important systems running and to avoid downtime during power interruptions.\n\nFor self-hosted services, Proxmox runs virtual machines:\nPi-hole, VPN, Wazuh Security, Radarr/Sonarr, Home Assistant, and Nextcloud.\n\nIn addition, a Dell PowerEdge R530 is used for testing and lab experiments. It supports tasks like clustering, backups, and disaster recovery so I can safely try new configurations.\n\nFor sensors and connectivity, a mini-PC acts as a bridge for the sensor hub and also provides LTE failover WAN (4G).\n\nAll case fans are Noctua Chromax models to keep airflow strong while maintaining quiet operation. This homelab is designed to be reliable, modular, and easy to expand.",
+    "imageUrls": [
+      "/projects/home-rack-01.jpg",
+      "/projects/home-rack-02.jpg",
+      "/projects/home-rack-03.jpg",
+      "/projects/home-rack-04.jpg",
+      "/projects/home-rack-05.jpg",
+      "/projects/home-rack-06.jpg",
+      "/projects/home-rack-07.jpg",
+      "/projects/home-rack-08.jpg",
+      "/projects/home-rack-09.jpg",
+      "/projects/home-rack-10.jpg",
+      "/projects/home-rack-11.jpg",
+      "/projects/home-rack-12.jpg",
+      "/projects/home-rack-13.jpg",
+      "/projects/home-rack-14.jpg",
+      "/projects/home-rack-15.jpg"
+    ],
+    "tags": [
+      "Homelab",
+      "Networking",
+      "UniFi",
+      "Proxmox",
+      "VMs",
+      "Security",
+      "PoE",
+      "UPS",
+      "Nextcloud",
+      "Home Assistant"
+    ],
+    "createdAt": "2026-03-26"
+  },
+  {
     "id": "dumobat-it-lab-support",
     "title": "IT Lab Support and Infrastructure Setup",
     "company": "Dumobat",
