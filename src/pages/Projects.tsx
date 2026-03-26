@@ -72,13 +72,15 @@ function ProjectGallery({
   const imageEl = (url: string, i: number, key: number) => (
     <div
       key={key}
-      className="panel-dark group flex-shrink-0 overflow-hidden rounded-xl shadow-lg transition-shadow duration-300 group-hover:shadow-xl"
+      className="panel-dark group relative flex-shrink-0 rounded-xl shadow-lg transition-shadow duration-300 group-hover:shadow-xl"
       style={{ width: 280, aspectRatio: '16/10' }}
+      onPointerEnter={() => setIsPaused(true)}
+      onPointerLeave={() => setIsPaused(false)}
     >
       <img
         src={url}
         alt=""
-        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.08]"
+        className="h-full w-full rounded-xl object-cover transition-transform duration-300 group-hover:scale-[1.18]"
         onError={() => onImageError(i)}
       />
     </div>
