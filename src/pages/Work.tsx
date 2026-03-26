@@ -29,7 +29,7 @@ export function Work() {
       <div className="container mx-auto max-w-[1100px] px-5">
         <section className="mb-5">
           <FadeIn>
-            <Card>
+            <Card className="h-full">
               <h2 className="mb-4 text-xl font-bold text-text">Experience</h2>
               <div className="space-y-4">
                 {jobs.map((job) => (

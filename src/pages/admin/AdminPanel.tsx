@@ -82,7 +82,7 @@ export function AdminPanel() {
           <div className="flex flex-wrap gap-2">
             <button
               onClick={handleLogout}
-              className="rounded-lg border border-line bg-surface-2 px-4 py-2 text-sm text-muted hover:bg-surface transition-colors"
+              className="chip-dark rounded-lg px-4 py-2 text-sm text-muted transition-colors hover:bg-slate-800/70"
             >
               Logout
             </button>
@@ -90,7 +90,7 @@ export function AdminPanel() {
               href="/projects"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg border border-line bg-surface-2 px-4 py-2 text-sm text-text hover:bg-surface transition-colors"
+              className="chip-dark rounded-lg px-4 py-2 text-sm text-text transition-colors hover:bg-slate-800/70"
             >
               View Site
             </a>
@@ -98,7 +98,7 @@ export function AdminPanel() {
         </div>
 
         {showForm ? (
-          <div className="rounded-card border border-line bg-surface p-6 shadow-card">
+          <div className="panel-dark rounded-card p-6">
             <h2 className="mb-6 text-lg font-semibold text-text">
               {editing ? 'Edit Project' : 'Add Project'}
             </h2>
@@ -122,13 +122,13 @@ export function AdminPanel() {
               </button>
               <button
                 onClick={handleExport}
-                className="rounded-lg border border-line bg-surface-2 px-5 py-2.5 text-text hover:bg-surface transition-colors"
+                className="chip-dark rounded-lg px-5 py-2.5 text-text transition-colors hover:bg-slate-800/70"
               >
                 Export JSON
               </button>
               <button
                 onClick={handleReloadFromStorage}
-                className="rounded-lg border border-line bg-surface-2 px-5 py-2.5 text-sm text-muted hover:bg-surface transition-colors"
+                className="chip-dark rounded-lg px-5 py-2.5 text-sm text-muted transition-colors hover:bg-slate-800/70"
               >
                 Reload draft
               </button>
@@ -144,7 +144,7 @@ export function AdminPanel() {
               {projects.map((p) => (
                 <div
                   key={p.id}
-                  className="flex flex-wrap items-center justify-between gap-4 rounded-card border border-line bg-surface p-4 shadow-card"
+                  className="panel-dark flex flex-wrap items-center justify-between gap-4 rounded-card p-4"
                 >
                   <div>
                     <h3 className="font-semibold text-text">{p.title}</h3>
@@ -155,7 +155,7 @@ export function AdminPanel() {
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleEdit(p)}
-                      className="rounded-lg border border-line bg-surface-2 px-3 py-1.5 text-sm text-text hover:bg-surface transition-colors"
+                      className="chip-dark rounded-lg px-3 py-1.5 text-sm text-text transition-colors hover:bg-slate-800/70"
                     >
                       Edit
                     </button>
@@ -171,17 +171,17 @@ export function AdminPanel() {
             </div>
 
             {projects.length === 0 && (
-              <div className="rounded-card border border-line bg-surface p-12 text-center text-muted">
+              <div className="panel-dark rounded-card p-12 text-center text-muted">
                 No projects. Click "Add Project" to get started.
               </div>
             )}
 
-            <div className="mt-8 rounded-lg border border-accent/30 bg-accent-weak/50 p-4 text-sm text-text">
+            <div className="mt-8 rounded-lg border border-blue-300/25 bg-blue-950/35 p-4 text-sm text-text">
               <p className="font-medium text-accent mb-2">How to publish</p>
               <ol className="list-inside list-decimal space-y-1 text-muted">
                 <li>Add your projects and click "Export JSON"</li>
-                <li>Replace <code className="rounded bg-surface-2 px-1">src/data/projects.json</code> with the exported file</li>
-                <li>Add images to <code className="rounded bg-surface-2 px-1">public/projects/</code> and use <code className="rounded bg-surface-2 px-1">/projects/filename.jpg</code> as image URL</li>
+                <li>Replace <code className="rounded bg-slate-800/70 px-1">src/data/projects.json</code> with the exported file</li>
+                <li>Add images to <code className="rounded bg-slate-800/70 px-1">public/projects/</code> and use <code className="rounded bg-slate-800/70 px-1">/projects/filename.jpg</code> as image URL</li>
                 <li>Commit and push to deploy</li>
               </ol>
             </div>

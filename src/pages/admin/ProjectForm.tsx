@@ -48,7 +48,7 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
   }
 
   const inputClass =
-    'w-full rounded-lg border border-line bg-surface-2 px-4 py-2.5 text-text placeholder-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent'
+    'input-dark w-full rounded-lg px-4 py-2.5 text-text placeholder-muted'
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
@@ -136,7 +136,7 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
           <button
             type="button"
             onClick={addImage}
-            className="shrink-0 rounded-lg border border-line bg-surface-2 px-4 py-2.5 text-text hover:bg-surface transition-colors"
+            className="chip-dark shrink-0 rounded-lg px-4 py-2.5 text-text transition-colors hover:bg-slate-800/70"
           >
             Add
           </button>
@@ -185,7 +185,7 @@ export function ProjectForm({ project, onSubmit, onCancel }: ProjectFormProps) {
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-lg border border-line bg-surface-2 px-6 py-2.5 text-text hover:bg-surface transition-colors"
+          className="chip-dark rounded-lg px-6 py-2.5 text-text transition-colors hover:bg-slate-800/70"
         >
           Cancel
         </button>

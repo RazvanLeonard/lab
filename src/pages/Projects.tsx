@@ -23,7 +23,7 @@ function ProjectPreviewCard({
         >
           <div className="flex h-full flex-col space-y-3">
             {mainImage && !imageError ? (
-              <div className="aspect-video overflow-hidden rounded-lg bg-surface-2 transition-transform duration-300 group-hover:scale-[1.02]">
+              <div className="aspect-video overflow-hidden rounded-lg border border-white/10 bg-slate-950/65 transition-transform duration-300 group-hover:scale-[1.02]">
                 <img
                   src={mainImage}
                   alt=""
@@ -72,7 +72,7 @@ function ProjectGallery({
   const imageEl = (url: string, i: number, key: number) => (
     <div
       key={key}
-      className="flex-shrink-0 overflow-hidden rounded-xl bg-surface-2 shadow-lg"
+      className="flex-shrink-0 overflow-hidden rounded-xl border border-white/10 bg-slate-950/65 shadow-lg"
       style={{ width: 280, aspectRatio: '16/10' }}
     >
       <img
@@ -154,7 +154,7 @@ function ProjectDetailPage({
         <button
           type="button"
           onClick={onClose}
-          className="fixed right-6 top-6 z-20 flex h-12 w-12 items-center justify-center rounded-full border border-line bg-surface/90 text-muted backdrop-blur-md transition-all duration-200 hover:border-accent hover:text-accent hover:scale-110"
+          className="fixed right-6 top-6 z-20 flex h-12 w-12 items-center justify-center rounded-full border border-blue-300/30 bg-slate-950/85 text-muted backdrop-blur-md transition-all duration-200 hover:scale-110 hover:border-blue-300/70 hover:text-blue-300"
           aria-label="Close"
         >
           <span className="text-xl">×</span>
@@ -178,7 +178,7 @@ function ProjectDetailPage({
 
         {/* Content */}
         <div className="relative -mt-16 max-w-3xl mx-auto px-6 pb-20" onClick={(e) => e.stopPropagation()}>
-          <article className="rounded-card border border-line bg-surface p-8 shadow-card md:p-12">
+          <article className="panel-dark rounded-card p-8 md:p-12">
             {/* Header */}
             <header className="mb-8" style={{ animation: 'projectFadeInUp 0.5s ease-out 0.2s both' }}>
               <button
@@ -269,7 +269,7 @@ export function Projects() {
         </section>
 
         {projects.length === 0 && (
-          <div className="rounded-card border border-line bg-surface p-12 text-center text-muted">
+          <div className="panel-dark rounded-card p-12 text-center text-muted">
             No projects yet. Add some from the admin panel.
           </div>
         )}

@@ -37,10 +37,10 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
         aria-hidden
       />
       <div
-        className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-card border border-line bg-surface shadow-card"
+        className="panel-dark relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-card"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-surface px-6 py-4">
+        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-white/10 bg-slate-950/70 px-6 py-4">
           {title && (
             <h2 id="modal-title" className="text-lg font-bold text-text">
               {title}
@@ -49,7 +49,7 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="ml-auto rounded-lg p-2 text-muted hover:bg-surface-2 hover:text-text transition-colors"
+            className="ml-auto rounded-lg p-2 text-muted transition-colors hover:bg-slate-800/60 hover:text-text"
             aria-label="Close"
           >
             ✕

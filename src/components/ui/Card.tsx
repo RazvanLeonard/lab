@@ -20,7 +20,7 @@ export function Card({ children, className = '' }: CardProps) {
 
   return (
     <div
-      className={`card-hover-glow relative h-full cursor-pointer overflow-hidden rounded-card border border-white/10 bg-[#0f1628]/90 p-6 shadow-[0_16px_40px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.03)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400/35 hover:shadow-[0_22px_50px_rgba(0,0,0,0.5),0_0_35px_rgba(37,99,235,0.22)] active:translate-y-px active:scale-[0.99] ${className}`}
+      className={`card-hover-glow panel-dark relative h-full cursor-pointer overflow-hidden rounded-card p-6 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-px active:scale-[0.99] ${className}`}
       style={
         {
           '--cx': '50%',

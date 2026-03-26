@@ -20,7 +20,7 @@ export function AdminLogin() {
 
   return (
     <div className="flex min-h-[60vh] items-center justify-center px-5">
-      <div className="w-full max-w-sm rounded-card border border-line bg-surface p-8 shadow-card">
+      <div className="panel-dark w-full max-w-sm rounded-card p-8">
         <h2 className="mb-6 text-xl font-bold text-text">Admin Login</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -32,7 +32,7 @@ export function AdminLogin() {
               type="password"
               value={pin}
               onChange={(e) => setPin(e.target.value)}
-              className="w-full rounded-lg border border-line bg-surface-2 px-4 py-3 text-text placeholder-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              className="input-dark w-full rounded-lg px-4 py-3 text-text placeholder-muted"
               placeholder="Enter PIN"
               autoFocus
               required
