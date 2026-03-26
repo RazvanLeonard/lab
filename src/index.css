@@ -272,12 +272,12 @@
 @keyframes appleMenuPanelIn {
   from {
     opacity: 0;
-    transform: translateY(-16px);
-    filter: blur(6px);
+    transform: translateY(-22px) scale(0.985);
+    filter: blur(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     filter: blur(0);
   }
 }
@@ -285,7 +285,7 @@
 @keyframes appleMenuItemIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -294,24 +294,27 @@
 }
 
 .apple-menu-backdrop {
-  animation: appleMenuBackdropIn 240ms ease-out both;
+  animation: appleMenuBackdropIn 220ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  will-change: opacity;
 }
 
 .apple-menu-panel {
-  animation: appleMenuPanelIn 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: appleMenuPanelIn 420ms cubic-bezier(0.28, 0.11, 0.32, 1) both;
+  will-change: transform, opacity, filter;
 }
 
 .apple-menu-list > * {
   opacity: 0;
-  animation: appleMenuItemIn 340ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: appleMenuItemIn 430ms cubic-bezier(0.28, 0.11, 0.32, 1) both;
+  will-change: transform, opacity;
 }
 
-.apple-menu-list > *:nth-child(1) { animation-delay: 40ms; }
-.apple-menu-list > *:nth-child(2) { animation-delay: 70ms; }
-.apple-menu-list > *:nth-child(3) { animation-delay: 100ms; }
-.apple-menu-list > *:nth-child(4) { animation-delay: 130ms; }
-.apple-menu-list > *:nth-child(5) { animation-delay: 160ms; }
-.apple-menu-list > *:nth-child(6) { animation-delay: 190ms; }
+.apple-menu-list > *:nth-child(1) { animation-delay: 85ms; }
+.apple-menu-list > *:nth-child(2) { animation-delay: 120ms; }
+.apple-menu-list > *:nth-child(3) { animation-delay: 155ms; }
+.apple-menu-list > *:nth-child(4) { animation-delay: 190ms; }
+.apple-menu-list > *:nth-child(5) { animation-delay: 225ms; }
+.apple-menu-list > *:nth-child(6) { animation-delay: 260ms; }
 
 
 @keyframes starTwinkle {
