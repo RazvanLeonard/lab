@@ -139,14 +139,14 @@ function ProjectDetailPage({
     >
       {/* Backdrop - fade in */}
       <div
-        className="fixed inset-0 bg-bg/95 backdrop-blur-md pointer-events-none"
+        className="fixed inset-0 bg-slate-950/78 backdrop-blur-xl pointer-events-none"
         style={{ animation: 'projectFadeIn 0.3s ease-out' }}
         aria-hidden
       />
 
       {/* Content - slide up, click outside to close */}
       <div
-        className="relative z-10 min-h-screen"
+        className="relative z-10 min-h-screen p-4 md:p-8"
         style={{ animation: 'projectSlideUp 0.4s ease-out' }}
         onClick={onClose}
       >
@@ -154,48 +154,52 @@ function ProjectDetailPage({
         <button
           type="button"
           onClick={onClose}
-          className="fixed right-6 top-6 z-20 flex h-12 w-12 items-center justify-center rounded-full border border-blue-300/30 bg-slate-950/85 text-muted backdrop-blur-md transition-all duration-200 hover:scale-110 hover:border-blue-300/70 hover:text-blue-300"
+          className="fixed right-5 top-5 z-30 flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-slate-900/75 text-slate-200 backdrop-blur-xl transition-all duration-200 hover:scale-110 hover:border-white/45 hover:text-white"
           aria-label="Close"
         >
           <span className="text-xl">×</span>
         </button>
 
-        {/* Hero image */}
-        {mainImage && !imageErrors[0] && (
-          <div className="relative h-[40vh] min-h-[280px] w-full overflow-hidden">
-            <img
-              src={mainImage}
-              alt=""
-              className="h-full w-full object-cover"
-              style={{ animation: 'projectScaleIn 0.5s ease-out 0.1s both' }}
-              onError={() =>
-                setImageErrors((prev) => ({ ...prev, [0]: true }))
-              }
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
-          </div>
-        )}
+        <div
+          className="relative mx-auto h-[calc(100vh-2rem)] max-w-[1320px] overflow-y-auto rounded-[28px] border border-white/20 bg-slate-900/35 p-4 shadow-[0_30px_90px_rgba(2,6,23,0.62)] backdrop-blur-2xl md:p-6"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <article className="panel-dark overflow-hidden rounded-[22px] p-0">
+            {/* Hero image */}
+            {mainImage && !imageErrors[0] && (
+              <div className="relative h-[46vh] min-h-[300px] w-full overflow-hidden">
+                <img
+                  src={mainImage}
+                  alt=""
+                  className="h-full w-full object-cover"
+                  style={{ animation: 'projectScaleIn 0.5s ease-out 0.1s both' }}
+                  onError={() =>
+                    setImageErrors((prev) => ({ ...prev, [0]: true }))
+                  }
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
+              </div>
+            )}
 
-        {/* Content */}
-        <div className="relative -mt-16 max-w-3xl mx-auto px-6 pb-20" onClick={(e) => e.stopPropagation()}>
-          <article className="panel-dark rounded-card p-8 md:p-12">
+            {/* Content */}
+            <div className="px-6 pb-10 pt-8 md:px-10 md:pb-12 md:pt-10">
             {/* Header */}
             <header className="mb-8" style={{ animation: 'projectFadeInUp 0.5s ease-out 0.2s both' }}>
               <button
                 type="button"
                 onClick={onClose}
-                className="mb-6 inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent"
+                className="mb-6 inline-flex items-center gap-2 text-sm text-slate-300 transition-colors hover:text-white"
               >
                 ← Back to projects
               </button>
               <h1
                 id="project-title"
-                className="text-3xl font-extrabold text-text md:text-4xl"
+                className="text-3xl font-extrabold text-text md:text-5xl"
               >
                 {project.title}
               </h1>
               <p className="mt-2 text-lg text-accent">@ {project.company}</p>
-              <p className="mt-1 text-muted">
+              <p className="mt-1 text-slate-300">
                 {project.dateStart} — {project.dateEnd}
                 {project.location && ` · ${project.location}`}
               </p>
@@ -203,7 +207,7 @@ function ProjectDetailPage({
 
             {/* Description */}
             <div className="mb-10" style={{ animation: 'projectFadeInUp 0.5s ease-out 0.3s both' }}>
-              <p className="text-text leading-relaxed whitespace-pre-line text-lg">
+              <p className="whitespace-pre-line text-lg leading-relaxed text-slate-100 md:text-xl">
                 {project.description}
               </p>
             </div>
@@ -221,7 +225,7 @@ function ProjectDetailPage({
 
             {/* Tags */}
             <footer style={{ animation: 'projectFadeInUp 0.5s ease-out 0.4s both' }}>
-              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted">
+              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-300">
                 Technologies
               </h3>
               <Tags>
@@ -230,6 +234,7 @@ function ProjectDetailPage({
                 ))}
               </Tags>
             </footer>
+            </div>
           </article>
         </div>
       </div>
