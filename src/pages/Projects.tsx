@@ -62,6 +62,7 @@ function ProjectGallery({
   onImageError: (i: number) => void
 }) {
   const [isPaused, setIsPaused] = useState(false)
+  const [hoveredKey, setHoveredKey] = useState<number | null>(null)
 
   const validImages = imageUrls
     .map((url, i) => ({ url, i }))
@@ -69,29 +70,46 @@ function ProjectGallery({
 
   if (validImages.length === 0) return null
 
-  const imageEl = (url: string, i: number, key: number) => (
-    <div
-      key={key}
-      className="panel-dark group relative flex-shrink-0 rounded-xl shadow-lg transition-shadow duration-300 group-hover:shadow-xl"
-      style={{ width: 280, aspectRatio: '16/10' }}
-      onPointerEnter={() => setIsPaused(true)}
-      onPointerLeave={() => setIsPaused(false)}
-    >
-      <img
-        src={url}
-        alt=""
-        className="h-full w-full rounded-xl object-cover transition-transform duration-300 group-hover:scale-[1.18]"
-        onError={() => onImageError(i)}
-      />
-    </div>
-  )
+  const imageEl = (url: string, i: number, key: number) => {
+    const isHovered = hoveredKey === key
+    const shouldBlurOthers = hoveredKey !== null && hoveredKey !== key
+
+    return (
+      <div
+        key={key}
+        className="panel-dark relative flex-shrink-0 rounded-xl shadow-lg transition-shadow duration-300"
+        style={{ width: 360, aspectRatio: '16/10' }}
+        onPointerEnter={() => {
+          setIsPaused(true)
+          setHoveredKey(key)
+        }}
+        onPointerLeave={() => {
+          setIsPaused(false)
+          setHoveredKey(null)
+        }}
+      >
+        <img
+          src={url}
+          alt=""
+          onError={() => onImageError(i)}
+          className={[
+            'h-full w-full rounded-xl object-cover',
+            'transition-[transform,filter,opacity] duration-250 ease-out',
+            // Keep shape and only enlarge slightly within the gallery area.
+            isHovered ? 'transform scale-[1.32] z-20' : 'transform scale-100',
+            shouldBlurOthers ? 'blur-[3px] opacity-70 saturate-75' : 'blur-0 opacity-100',
+          ].join(' ')}
+        />
+      </div>
+    )
+  }
 
   return (
     <div className="mb-10" style={{ animation: 'projectFadeInUp 0.5s ease-out 0.35s both' }}>
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted">
         Gallery
       </h3>
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-visible">
         <div
           className={`gallery-marquee-track flex gap-4 ${isPaused ? 'paused' : ''}`}
           style={{ width: 'max-content' }}
