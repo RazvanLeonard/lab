@@ -4,25 +4,25 @@ const passions = [
   {
     title: 'Home Lab',
     description:
-      'I like experimenting with small servers, VLANs, and monitoring. Building stable, neat racks is my jam.',
+      'I spend time testing small servers, VLANs, and monitoring tools. I enjoy building clean and stable rack setups.',
     tags: ['racks', 'switching', 'pfSense', 'Proxmox'],
   },
   {
     title: 'PC Builds',
     description:
-      'Custom builds for friends & family — tidy cabling, thermals, and quiet performance.',
+      'I build custom PCs for friends and family, with focus on clean cabling, good cooling, and quiet performance.',
     tags: ['hardware', 'cooling', 'cable management'],
   },
   {
     title: 'Content & Design',
     description:
-      'Light video edits in After Effects / Photoshop, plus simple sites like this one.',
+      'I also do basic edits in After Effects and Photoshop, and build simple websites like this one.',
     tags: ['AE', 'PS', 'web'],
   },
   {
     title: 'Gaming',
     description:
-      'Co-op and competitive titles. I enjoy tweaking settings & networks for low latency.',
+      'I play both co-op and competitive games, and I like tuning system and network settings for lower latency.',
     tags: ['FPS', 'Racing', 'Co-op'],
   },
 ]

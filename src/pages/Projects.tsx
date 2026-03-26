@@ -38,7 +38,7 @@ function ProjectPreviewCard({
               </h3>
               <p className="text-sm text-accent">@ {project.company}</p>
               <p className="mt-1 text-sm text-muted">
-                {project.dateStart} — {project.dateEnd}
+                {project.dateStart} to {project.dateEnd}
                 {project.location && ` · ${project.location}`}
               </p>
             </div>
@@ -201,7 +201,7 @@ function ProjectDetailPage({
               </h1>
               <p className="mt-2 text-lg text-accent">@ {project.company}</p>
               <p className="mt-1 text-slate-300">
-                {project.dateStart} — {project.dateEnd}
+                {project.dateStart} to {project.dateEnd}
                 {project.location && ` · ${project.location}`}
               </p>
             </header>
@@ -260,7 +260,7 @@ export function Projects() {
             Projects
           </h1>
           <p className="text-muted">
-            A selection of projects I've worked on for various companies.
+            Real projects I worked on in internships and client environments.
           </p>
         </section>
 

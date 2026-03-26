@@ -6,9 +6,9 @@ const jobs = [
     company: "Domino's Pizza",
     meta: '2018–2025 · Antwerp',
     bullets: [
-      "Cycling from courier → shift lead → manager (Schoten & Deurne).",
-      "Operations: rosters, payroll, inventory, smooth daily flow.",
-      "Training, customer problem solving, ServSafe food safety.",
+      "Started as courier, then became shift lead, then manager in Schoten and Deurne.",
+      "Handled planning, payroll, stock, and daily operations.",
+      "Trained team members, solved customer issues, and followed ServSafe standards.",
     ],
   },
   {
@@ -16,9 +16,9 @@ const jobs = [
     company: 'Dumobat',
     meta: '2022–2024',
     bullets: [
-      'Promoted from intern within a week.',
-      'Emails, vendor issue support, calculation dept assistance.',
-      'Invoices, work orders, document handling.',
+      'Promoted from intern in the first week.',
+      'Supported emails, vendor follow-up, and the calculation team.',
+      'Managed invoices, work orders, and internal documents.',
     ],
   },
 ]
@@ -39,7 +39,7 @@ export function Work() {
                   >
                     <div className="mb-2 flex flex-wrap items-baseline justify-between gap-3">
                       <h3 className="m-0 text-lg font-semibold text-text">
-                        {job.title} — <span className="text-accent">{job.company}</span>
+                        {job.title}, <span className="text-accent">{job.company}</span>
                       </h3>
                       <span className="text-sm text-muted">{job.meta}</span>
                     </div>

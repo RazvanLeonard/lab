@@ -78,7 +78,7 @@ export function AdminPanel() {
     <main className="min-h-screen bg-bg py-10">
       <div className="container mx-auto max-w-[900px] px-5">
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-          <h1 className="text-2xl font-bold text-text">Admin — Projects</h1>
+          <h1 className="text-2xl font-bold text-text">Admin Projects</h1>
           <div className="flex flex-wrap gap-2">
             <button
               onClick={handleLogout}
@@ -149,7 +149,7 @@ export function AdminPanel() {
                   <div>
                     <h3 className="font-semibold text-text">{p.title}</h3>
                     <p className="text-sm text-muted">
-                      {p.company} · {p.dateStart} — {p.dateEnd}
+                      {p.company} · {p.dateStart} to {p.dateEnd}
                     </p>
                   </div>
                   <div className="flex gap-2">

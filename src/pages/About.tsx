@@ -9,9 +9,9 @@ export function About() {
             <Card className="h-full">
               <h2 className="mb-4 text-xl font-bold text-text">Who I am</h2>
               <p className="mb-4 text-text">
-                I'm Moise Razvan (Antwerp). I love building hardware, assembling &
-                configuring server racks, and trying new technologies to deepen my
-                skills. Team player, hands-on learner.
+                I am Moise Razvan from Antwerp. I enjoy hands-on IT work, from PC
+                builds and rack setup to network configuration. I like learning by
+                doing and improving every project step by step.
               </p>
               <ul className="list-inside list-disc space-y-2 pl-2">
                 <li>Drivers: B (18+), A2 (20+)</li>
@@ -34,11 +34,11 @@ export function About() {
               <h2 className="mb-4 text-xl font-bold text-text">Education</h2>
               <ul className="space-y-2">
                 <li>
-                  <strong>AP Hogeschool</strong> — System & Network Management
+                  <strong>AP Hogeschool</strong>: System & Network Management
                   (2023–2025)
                 </li>
                 <li>
-                  <strong>Secondary</strong> — Office & Sales (2018–2023)
+                  <strong>Secondary</strong>: Office & Sales (2018–2023)
                 </li>
               </ul>
             </Card>
