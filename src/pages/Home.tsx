@@ -1,7 +1,21 @@
 export function Home() {
   return (
-    <main className="flex min-h-[140vh] flex-col items-start bg-transparent pt-[14vh] md:min-h-[190svh] md:pt-[12svh]">
-      <div className="container mx-auto max-w-[1100px] px-5">
+    <main className="home-hero relative flex min-h-[140vh] flex-col items-start overflow-hidden bg-transparent pt-[14vh] md:min-h-[190svh] md:pt-[12svh]">
+      <div className="home-effects" aria-hidden="true">
+        <span className="hero-star star-1" />
+        <span className="hero-star star-2" />
+        <span className="hero-star star-3" />
+        <span className="hero-star star-4" />
+        <span className="hero-star star-5" />
+        <span className="hero-star star-6" />
+        <span className="hero-star star-7" />
+        <span className="hero-star star-8" />
+        <span className="hero-glow glow-1" />
+        <span className="hero-glow glow-2" />
+        <span className="hero-ring" />
+      </div>
+
+      <div className="container relative z-10 mx-auto max-w-[1100px] px-5">
         <h1 className="headline m-0 text-[clamp(36px,10vw,96px)] font-extrabold leading-[1.02] tracking-tight md:text-[clamp(40px,8vw,120px)]">
           i'm <span className="text-accent">moise razvan</span>
           <br />

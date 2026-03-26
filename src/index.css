@@ -168,6 +168,89 @@
 
 .wave-1 { bottom: 0; left: 0; }
 
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.6); }
+}
+
+@keyframes driftY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 56% 26%, rgba(37, 99, 235, 0.26), transparent 60%),
+    radial-gradient(640px 360px at 50% 88%, rgba(37, 99, 235, 0.24), transparent 62%);
+  z-index: 1;
+}
+
+.home-effects {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background: rgba(147, 197, 253, 0.95);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+  animation: starTwinkle 3.4s ease-in-out infinite;
+}
+
+.star-1 { top: 11%; left: 16%; animation-delay: 0s; }
+.star-2 { top: 19%; left: 32%; width: 3px; height: 3px; animation-delay: 0.6s; }
+.star-3 { top: 23%; left: 64%; width: 5px; height: 5px; animation-delay: 1.4s; }
+.star-4 { top: 35%; left: 79%; width: 3px; height: 3px; animation-delay: 2.1s; }
+.star-5 { top: 51%; left: 21%; width: 3px; height: 3px; animation-delay: 1.8s; }
+.star-6 { top: 58%; left: 46%; width: 4px; height: 4px; animation-delay: 2.8s; }
+.star-7 { top: 66%; left: 70%; width: 3px; height: 3px; animation-delay: 1.2s; }
+.star-8 { top: 82%; left: 12%; width: 3px; height: 3px; animation-delay: 0.9s; }
+
+.hero-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(44px);
+  animation: driftY 9s ease-in-out infinite;
+}
+
+.glow-1 {
+  left: 8%;
+  top: 10%;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.35), rgba(37, 99, 235, 0.05));
+}
+
+.glow-2 {
+  right: 5%;
+  bottom: 6%;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.33), rgba(59, 130, 246, 0.04));
+  animation-delay: -3.2s;
+}
+
+.hero-ring {
+  position: absolute;
+  left: 24%;
+  bottom: 26%;
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  border: 2px solid rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.45);
+  animation: circle-pulse 6.4s ease-in-out infinite;
+}
+
 /* Project detail overlay animations */
 @keyframes projectFadeIn {
   from { opacity: 0; }
@@ -219,6 +302,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   .global-background-layer {
+    display: none !important;
+  }
+  .home-effects {
+    display: none !important;
+  }
+  .home-hero::before {
     display: none !important;
   }
 
