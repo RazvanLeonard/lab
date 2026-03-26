@@ -36,7 +36,7 @@ export function Header() {
     <header
       className={`sticky top-0 z-50 flex h-[68px] items-center justify-between px-5 pt-[env(safe-area-inset-top,0)] transition-all duration-200 ${
         scrolled
-          ? 'border-b border-line bg-bg/72 shadow-lg backdrop-blur-md backdrop-saturate-[1.15]'
+          ? 'border-b border-white/15 bg-slate-900/35 shadow-lg backdrop-blur-xl backdrop-saturate-150'
           : 'border-b-0 bg-transparent'
       }`}
     >
@@ -49,7 +49,7 @@ export function Header() {
 
       <button
         type="button"
-        className="hidden h-[34px] w-[38px] flex-col items-center justify-center gap-1.5 rounded-lg border border-line bg-white/5 md:hidden"
+        className="hidden h-[34px] w-[38px] flex-col items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-slate-900/30 backdrop-blur-md md:hidden"
         aria-expanded={mobileNavOpen}
         aria-label="Toggle navigation"
         onClick={() => setMobileNavOpen((o) => !o)}
@@ -60,7 +60,7 @@ export function Header() {
       </button>
 
       <nav
-        className={`nav-z absolute right-4 top-[68px] flex flex-col gap-2.5 rounded-2xl border border-line bg-bg/95 p-3 shadow-xl backdrop-blur-md md:static md:top-auto md:flex md:flex-row md:items-center md:gap-3 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
+        className={`nav-z absolute right-4 top-[68px] flex flex-col gap-2.5 rounded-2xl border border-white/15 bg-slate-900/38 p-3 shadow-xl backdrop-blur-xl md:static md:top-auto md:flex md:flex-row md:items-center md:gap-3 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
           mobileNavOpen ? 'flex' : 'hidden md:flex'
         }`}
       >
@@ -72,8 +72,8 @@ export function Header() {
             className={({ isActive }) =>
               `flex h-10 items-center justify-center rounded-[14px] px-4 font-semibold transition-all duration-150 ${
                 isActive
-                  ? 'border border-white/14 bg-white/[0.08] text-text'
-                  : 'border border-white/[0.06] bg-white/[0.035] text-text hover:border-white/10 hover:bg-white/[0.06]'
+                  ? 'border border-white/24 bg-white/[0.12] text-text backdrop-blur-md'
+                  : 'border border-white/[0.12] bg-white/[0.05] text-text backdrop-blur-md hover:border-white/20 hover:bg-white/[0.10]'
               }`
             }
           >
@@ -82,7 +82,7 @@ export function Header() {
         ))}
         <a
           href="mailto:moiserazvanleonard@gmail.com"
-          className="flex h-10 items-center justify-center rounded-[14px] border-0 bg-accent px-4 font-extrabold text-bg transition-transform active:translate-y-px md:h-10"
+          className="flex h-10 items-center justify-center rounded-[14px] border border-cyan-200/35 bg-cyan-300/80 px-4 font-extrabold text-slate-950 shadow-[0_8px_24px_rgba(34,211,238,0.35)] backdrop-blur-md transition-transform active:translate-y-px md:h-10"
         >
           Contact
         </a>

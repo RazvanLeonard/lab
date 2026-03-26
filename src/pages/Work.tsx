@@ -35,7 +35,7 @@ export function Work() {
                 {jobs.map((job) => (
                   <div
                     key={job.company}
-                    className="border-b border-dashed border-line pb-4 last:border-0 last:pb-0"
+                    className="border-b border-dashed border-white/15 pb-4 last:border-0 last:pb-0"
                   >
                     <div className="mb-2 flex flex-wrap items-baseline justify-between gap-3">
                       <h3 className="m-0 text-lg font-semibold text-text">

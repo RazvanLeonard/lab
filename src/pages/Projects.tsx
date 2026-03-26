@@ -183,7 +183,7 @@ function ProjectDetailPage({
             )}
 
             {/* Content */}
-            <div className="relative -mt-8 rounded-t-[24px] border-t border-white/10 bg-slate-900/35 px-6 pb-10 pt-8 backdrop-blur-xl md:-mt-10 md:px-10 md:pb-12 md:pt-10">
+            <div className="project-content-reveal relative -mt-8 rounded-t-[24px] border-t border-white/10 bg-slate-900/35 px-6 pb-10 pt-8 backdrop-blur-xl md:-mt-10 md:px-10 md:pb-12 md:pt-10">
             {/* Header */}
             <header className="mb-8" style={{ animation: 'projectFadeInUp 0.5s ease-out 0.2s both' }}>
               <button
