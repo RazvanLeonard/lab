@@ -1,5 +1,28 @@
 [
   {
+    "id": "dumobat-it-lab-support",
+    "title": "IT Lab Support and Infrastructure Setup",
+    "company": "Dumobat",
+    "dateStart": "2025-12",
+    "dateEnd": "2026-02",
+    "location": "Belgium",
+    "description": "During my internship period at Dumobat, I worked on practical infrastructure and hardware tasks in a live company environment. I assembled and organized a full rack setup, including clean cable management and structured equipment placement for easier maintenance and reliability. I also built and configured a racing simulator station, handling both hardware assembly and system setup so it was ready for use. In addition, I diagnosed and repaired multiple damaged computers after an electrical leakage issue, replacing faulty components, restoring stable operation, and validating each system before handoff.",
+    "imageUrls": [
+      "/projects/dumobat-01.jpg",
+      "/projects/dumobat-02.jpg",
+      "/projects/dumobat-03.jpg",
+      "/projects/dumobat-04.jpg",
+      "/projects/dumobat-05.jpg",
+      "/projects/dumobat-06.jpg",
+      "/projects/dumobat-07.jpg",
+      "/projects/dumobat-08.jpg",
+      "/projects/dumobat-09.jpg",
+      "/projects/dumobat-10.jpg"
+    ],
+    "tags": ["Hardware", "IT Support", "Rack Setup", "Cable Management", "Troubleshooting", "Diagnostics"],
+    "createdAt": "2026-03-26"
+  },
+  {
     "id": "oog-baron-joostensstraat",
     "title": "Oogcentrum Baron Joostensstraat",
     "company": "Oogcentrum Baron Joostensstraat",
