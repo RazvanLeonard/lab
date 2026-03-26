@@ -21,6 +21,8 @@ function AppLayout() {
         <span className="particle particle-3" />
         <span className="particle particle-4" />
         <span className="particle particle-5" />
+        <span className="particle particle-6" />
+        <span className="particle particle-7" />
 
         <span className="animated-triangle triangle-1" />
         <span className="animated-triangle triangle-2" />

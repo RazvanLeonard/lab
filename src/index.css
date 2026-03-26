@@ -111,10 +111,12 @@
 }
 
 .particle-1 { top: 12%; left: 15%; width: 8px; height: 8px; animation-delay: -1s; }
-.particle-2 { top: 28%; right: 18%; width: 10px; height: 10px; animation-delay: -2s; }
-.particle-3 { top: 62%; left: 22%; width: 7px; height: 7px; animation-delay: -0.5s; }
-.particle-4 { bottom: 24%; right: 25%; width: 9px; height: 9px; animation-delay: -3s; }
-.particle-5 { bottom: 12%; left: 55%; width: 6px; height: 6px; animation-delay: -1.8s; }
+.particle-2 { top: 30%; right: 16%; width: 8px; height: 8px; animation-delay: -2s; }
+.particle-3 { top: 64%; left: 18%; width: 6px; height: 6px; animation-delay: -0.5s; }
+.particle-4 { bottom: 22%; right: 24%; width: 7px; height: 7px; animation-delay: -3s; }
+.particle-5 { bottom: 14%; left: 56%; width: 5px; height: 5px; animation-delay: -1.8s; }
+.particle-6 { top: 18%; left: 58%; width: 4px; height: 4px; animation-delay: -2.6s; }
+.particle-7 { bottom: 8%; left: 8%; width: 4px; height: 4px; animation-delay: -3.2s; }
 
 .animated-orb {
   position: absolute;
@@ -125,9 +127,9 @@
   animation: orb-float 10s ease-in-out infinite;
 }
 
-.orb-1 { top: 16%; left: 8%; width: 280px; height: 280px; }
-.orb-2 { top: 12%; right: 6%; width: 320px; height: 320px; animation-delay: -4s; }
-.orb-3 { bottom: -6%; left: 28%; width: 360px; height: 360px; animation-delay: -2s; }
+.orb-1 { top: 12%; left: 10%; width: 240px; height: 240px; }
+.orb-2 { top: 8%; right: 8%; width: 300px; height: 300px; animation-delay: -4s; }
+.orb-3 { bottom: -10%; left: 30%; width: 380px; height: 380px; animation-delay: -2s; }
 
 .animated-triangle {
   position: absolute;
@@ -135,37 +137,37 @@
   height: 0;
   border-left: 34px solid transparent;
   border-right: 34px solid transparent;
-  border-bottom: 58px solid rgba(59, 130, 246, 0.52);
+  border-bottom: 58px solid rgba(59, 130, 246, 0.44);
   pointer-events: none;
-  filter: blur(1.5px);
-  box-shadow: 0 0 24px rgba(29, 78, 216, 0.55);
-  animation: rotate-float 8s ease-in-out infinite;
+  filter: blur(1px);
+  box-shadow: 0 0 20px rgba(29, 78, 216, 0.42);
+  animation: rotate-float 10s ease-in-out infinite;
 }
 
-.triangle-1 { top: 36%; left: 72%; }
-.triangle-2 { top: 14%; left: 5%; transform: rotate(18deg); animation-delay: -2.3s; }
+.triangle-1 { bottom: 9%; right: 5%; transform: rotate(-2deg); animation-delay: -1.2s; }
+.triangle-2 { top: 7%; left: 2.5%; transform: rotate(8deg); animation-delay: -2.8s; }
 
 .animated-circle {
   position: absolute;
-  width: 72px;
-  height: 72px;
+  width: 70px;
+  height: 70px;
   border-radius: 9999px;
-  border: 2px solid rgba(59, 130, 246, 0.62);
+  border: 2px solid rgba(59, 130, 246, 0.56);
   pointer-events: none;
-  box-shadow: 0 0 28px rgba(29, 78, 216, 0.62), 0 0 56px rgba(59, 130, 246, 0.33);
-  animation: circle-pulse 6s ease-in-out infinite;
+  box-shadow: 0 0 24px rgba(29, 78, 216, 0.55), 0 0 44px rgba(59, 130, 246, 0.28);
+  animation: circle-pulse 7.2s ease-in-out infinite;
 }
 
-.circle-1 { bottom: 20%; right: 14%; }
-.circle-2 { top: 28%; left: 18%; animation-delay: -2.8s; }
+.circle-1 { bottom: 19%; left: 24%; }
+.circle-2 { top: 26%; right: 18%; width: 46px; height: 46px; border-width: 1.5px; opacity: 0.55; animation-delay: -3.1s; }
 
 .animated-wave {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent, rgba(29, 78, 216, 0.25) 50%, transparent);
+  background: linear-gradient(180deg, transparent, rgba(29, 78, 216, 0.18) 52%, transparent);
   clip-path: polygon(0 100%, 100% 100%, 100% 80%, 0 60%);
   animation: wave-move 8s ease-in-out infinite;
-  opacity: 0.45;
+  opacity: 0.38;
 }
 
 .wave-1 { bottom: 0; left: 0; }
