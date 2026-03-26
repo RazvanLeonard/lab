@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const navItems = [
@@ -10,7 +10,6 @@ const navItems = [
 ]
 
 export function Header() {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -32,17 +31,6 @@ export function Header() {
     }
   }, [])
 
-  useEffect(() => {
-    const closeOnDesktop = () => {
-      if (window.innerWidth >= 768) {
-        setMobileNavOpen(false)
-      }
-    }
-
-    window.addEventListener('resize', closeOnDesktop)
-    return () => window.removeEventListener('resize', closeOnDesktop)
-  }, [])
-
   return (
     <header
       className={`sticky top-0 z-50 flex h-[68px] items-center justify-between px-5 pt-[env(safe-area-inset-top,0)] transition-all duration-200 ${
@@ -58,30 +46,15 @@ export function Header() {
         MOISE <span className="text-accent">RAZVAN</span>
       </NavLink>
 
-      <button
-        type="button"
-        className="flex h-[38px] w-[42px] flex-col items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-slate-900/30 backdrop-blur-md md:hidden"
-        aria-expanded={mobileNavOpen}
-        aria-label="Toggle navigation"
-        onClick={() => setMobileNavOpen((o) => !o)}
-      >
-        <span className="h-0.5 w-5 rounded bg-[#d7d9e3]" />
-        <span className="h-0.5 w-5 rounded bg-[#d7d9e3]" />
-        <span className="h-0.5 w-5 rounded bg-[#d7d9e3]" />
-      </button>
-
       <nav
-        className={`nav-z absolute left-4 right-4 top-[68px] z-50 flex-col gap-2.5 rounded-2xl border border-white/15 bg-slate-900/55 p-3 shadow-xl backdrop-blur-xl md:static md:left-auto md:right-auto md:top-auto md:z-auto md:flex md:flex-row md:items-center md:gap-3 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
-          mobileNavOpen ? 'flex' : 'hidden'
-        }`}
+        className="nav-z absolute left-3 right-3 top-[68px] z-50 flex flex-row items-center gap-2 overflow-x-auto rounded-2xl border border-white/15 bg-slate-900/55 p-2 shadow-xl backdrop-blur-xl md:static md:left-auto md:right-auto md:top-auto md:z-auto md:overflow-visible md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none"
       >
         {navItems.map(({ to, label }) => (
           <NavLink
             key={to}
             to={to}
-            onClick={() => setMobileNavOpen(false)}
             className={({ isActive }) =>
-              `flex h-10 items-center justify-center rounded-[14px] px-4 font-semibold transition-all duration-150 ${
+              `flex h-10 shrink-0 items-center justify-center rounded-[14px] px-4 font-semibold transition-all duration-150 ${
                 isActive
                   ? 'border border-white/24 bg-white/[0.12] text-text backdrop-blur-md'
                   : 'border border-white/[0.12] bg-white/[0.05] text-text backdrop-blur-md hover:border-white/20 hover:bg-white/[0.10]'
