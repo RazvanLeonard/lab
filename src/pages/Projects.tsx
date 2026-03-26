@@ -15,13 +15,13 @@ function ProjectPreviewCard({
 
   return (
     <FadeIn>
-      <Card>
+      <Card className="h-full">
         <button
           type="button"
           onClick={onClick}
-          className="group w-full text-left"
+          className="group flex h-full w-full flex-col text-left"
         >
-          <div className="space-y-3">
+          <div className="flex h-full flex-col space-y-3">
             {mainImage && !imageError ? (
               <div className="aspect-video overflow-hidden rounded-lg bg-surface-2 transition-transform duration-300 group-hover:scale-[1.02]">
                 <img
@@ -42,7 +42,7 @@ function ProjectPreviewCard({
                 {project.location && ` · ${project.location}`}
               </p>
             </div>
-            <p className="text-sm text-muted opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+            <p className="mt-auto pt-2 text-sm text-muted opacity-0 transition-opacity duration-200 group-hover:opacity-100">
               View project →
             </p>
           </div>
@@ -258,7 +258,7 @@ export function Projects() {
           </p>
         </section>
 
-        <section className="grid gap-6 md:grid-cols-2">
+        <section className="grid auto-rows-fr gap-6 md:grid-cols-2">
           {projects.map((project) => (
             <ProjectPreviewCard
               key={project.id}

@@ -11,9 +11,9 @@ export function useCursorGlow() {
     const handleMove = (e: PointerEvent) => {
       root.style.setProperty('--mx', `${e.clientX}px`)
       root.style.setProperty('--my', `${e.clientY}px`)
-      root.style.setProperty('--glow', '1')
+      root.style.setProperty('--glow', '0.92')
       clearTimeout(fadeTimer)
-      fadeTimer = setTimeout(() => root.style.setProperty('--glow', '0'), 900)
+      fadeTimer = setTimeout(() => root.style.setProperty('--glow', '0'), 1100)
     }
 
     const handleLeave = () => root.style.setProperty('--glow', '0')

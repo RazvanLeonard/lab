@@ -4,9 +4,9 @@ export function About() {
   return (
     <main className="page bg-transparent py-11 shadow-none">
       <div className="container mx-auto max-w-[1100px] px-5">
-        <section className="grid gap-5 md:grid-cols-2">
-          <FadeIn>
-            <Card>
+        <section className="grid auto-rows-fr items-stretch gap-5 md:grid-cols-2">
+          <FadeIn className="h-full">
+            <Card className="h-full">
               <h2 className="mb-4 text-xl font-bold text-text">Who I am</h2>
               <p className="mb-4 text-text">
                 I'm Moise Razvan (Antwerp). I love building hardware, assembling &
@@ -29,8 +29,8 @@ export function About() {
             </Card>
           </FadeIn>
 
-          <FadeIn>
-            <Card>
+          <FadeIn className="h-full">
+            <Card className="h-full">
               <h2 className="mb-4 text-xl font-bold text-text">Education</h2>
               <ul className="space-y-2">
                 <li>

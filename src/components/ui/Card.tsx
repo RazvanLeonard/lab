@@ -20,7 +20,7 @@ export function Card({ children, className = '' }: CardProps) {
 
   return (
     <div
-      className={`card-hover-glow cursor-pointer overflow-hidden rounded-card border border-line bg-surface p-6 shadow-card transition-all duration-150 hover:-translate-y-0.5 hover:shadow-card-hover active:translate-y-px active:scale-[0.99] ${className}`}
+      className={`card-hover-glow relative h-full cursor-pointer overflow-hidden rounded-card border border-white/10 bg-[#0f1628]/90 p-6 shadow-[0_16px_40px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.03)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400/35 hover:shadow-[0_22px_50px_rgba(0,0,0,0.5),0_0_35px_rgba(37,99,235,0.22)] active:translate-y-px active:scale-[0.99] ${className}`}
       style={
         {
           '--cx': '50%',
@@ -34,7 +34,7 @@ export function Card({ children, className = '' }: CardProps) {
       <div
         className="pointer-events-none absolute -inset-0.5 mix-blend-screen opacity-[var(--spot)] transition-opacity duration-200"
         style={{
-          background: `radial-gradient(240px circle at var(--cx) var(--cy), rgba(0,183,255,0.18), rgba(0,183,255,0) 60%)`,
+          background: `radial-gradient(260px circle at var(--cx) var(--cy), rgba(59,130,246,0.2), rgba(59,130,246,0) 62%)`,
         }}
         aria-hidden
       />

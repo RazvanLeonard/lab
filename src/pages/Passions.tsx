@@ -31,10 +31,10 @@ export function Passions() {
   return (
     <main className="page bg-transparent py-11 shadow-none">
       <div className="container mx-auto max-w-[1100px] px-5">
-        <section className="grid gap-5 md:grid-cols-2">
+        <section className="grid auto-rows-fr items-stretch gap-5 md:grid-cols-2">
           {passions.map((p) => (
-            <FadeIn key={p.title}>
-            <Card>
+            <FadeIn key={p.title} className="h-full">
+            <Card className="h-full">
               <h2 className="mb-3 text-xl font-bold text-text">{p.title}</h2>
               <p className="mb-4 text-text">{p.description}</p>
               <Tags>

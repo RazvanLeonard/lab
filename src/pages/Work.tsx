@@ -55,9 +55,9 @@ export function Work() {
           </FadeIn>
         </section>
 
-        <section className="grid gap-5 md:grid-cols-2">
-          <FadeIn>
-            <Card>
+        <section className="grid auto-rows-fr items-stretch gap-5 md:grid-cols-2">
+          <FadeIn className="h-full">
+            <Card className="h-full">
               <h2 className="mb-4 text-xl font-bold text-text">Tools I use</h2>
               <Tags>
                 <Tag>Linux</Tag>
@@ -70,8 +70,8 @@ export function Work() {
             </Card>
           </FadeIn>
 
-          <FadeIn>
-            <Card>
+          <FadeIn className="h-full">
+            <Card className="h-full">
               <h2 className="mb-4 text-xl font-bold text-text">Strengths</h2>
               <Tags>
                 <Tag>System Admin</Tag>
