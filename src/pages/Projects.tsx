@@ -77,8 +77,8 @@ function ProjectGallery({
     return (
       <div
         key={key}
-        className="panel-dark relative flex-shrink-0 rounded-xl shadow-lg transition-shadow duration-300"
-        style={{ width: 360, aspectRatio: '16/10' }}
+        className="panel-dark relative flex-shrink-0 overflow-hidden rounded-xl shadow-lg transition-shadow duration-300"
+        style={{ width: 420, aspectRatio: '16/10' }}
         onPointerEnter={() => {
           setIsPaused(true)
           setHoveredKey(key)
@@ -96,8 +96,8 @@ function ProjectGallery({
             'h-full w-full rounded-xl object-cover',
             'transition-[transform,filter,opacity] duration-250 ease-out',
             // Keep shape and only enlarge slightly within the gallery area.
-            isHovered ? 'transform scale-[1.32] z-20' : 'transform scale-100',
-            shouldBlurOthers ? 'blur-[3px] opacity-70 saturate-75' : 'blur-0 opacity-100',
+            isHovered ? 'transform scale-[1.18]' : 'transform scale-[0.98]',
+            shouldBlurOthers ? 'blur-[4px] opacity-30 saturate-85' : 'blur-0 opacity-100',
           ].join(' ')}
         />
       </div>
@@ -109,9 +109,9 @@ function ProjectGallery({
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted">
         Gallery
       </h3>
-      <div className="relative overflow-visible">
+      <div className="relative overflow-hidden">
         <div
-          className={`gallery-marquee-track flex gap-4 ${isPaused ? 'paused' : ''}`}
+          className={`gallery-marquee-track flex gap-8 ${isPaused ? 'paused' : ''}`}
           style={{ width: 'max-content' }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
