@@ -32,6 +32,17 @@ export function Header() {
     }
   }, [])
 
+  useEffect(() => {
+    const closeOnDesktop = () => {
+      if (window.innerWidth >= 768) {
+        setMobileNavOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', closeOnDesktop)
+    return () => window.removeEventListener('resize', closeOnDesktop)
+  }, [])
+
   return (
     <header
       className={`sticky top-0 z-50 flex h-[68px] items-center justify-between px-5 pt-[env(safe-area-inset-top,0)] transition-all duration-200 ${
@@ -49,7 +60,7 @@ export function Header() {
 
       <button
         type="button"
-        className="hidden h-[34px] w-[38px] flex-col items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-slate-900/30 backdrop-blur-md md:hidden"
+        className="flex h-[38px] w-[42px] flex-col items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-slate-900/30 backdrop-blur-md md:hidden"
         aria-expanded={mobileNavOpen}
         aria-label="Toggle navigation"
         onClick={() => setMobileNavOpen((o) => !o)}
@@ -60,8 +71,8 @@ export function Header() {
       </button>
 
       <nav
-        className={`nav-z absolute right-4 top-[68px] flex flex-col gap-2.5 rounded-2xl border border-white/15 bg-slate-900/38 p-3 shadow-xl backdrop-blur-xl md:static md:top-auto md:flex md:flex-row md:items-center md:gap-3 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
-          mobileNavOpen ? 'flex' : 'hidden md:flex'
+        className={`nav-z absolute left-4 right-4 top-[68px] z-50 flex-col gap-2.5 rounded-2xl border border-white/15 bg-slate-900/55 p-3 shadow-xl backdrop-blur-xl md:static md:left-auto md:right-auto md:top-auto md:z-auto md:flex md:flex-row md:items-center md:gap-3 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
+          mobileNavOpen ? 'flex' : 'hidden'
         }`}
       >
         {navItems.map(({ to, label }) => (
