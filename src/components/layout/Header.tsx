@@ -108,11 +108,11 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-[120] md:hidden" role="dialog" aria-modal="true">
           <button
-            className="absolute inset-0 bg-black/72 backdrop-blur-xl"
+            className="apple-menu-backdrop absolute inset-0 bg-black/72 backdrop-blur-xl"
             onClick={() => setMobileMenuOpen(false)}
             aria-label="Close navigation menu"
           />
-          <div className="absolute inset-x-0 top-0 border-b border-white/10 bg-slate-950/95 px-5 pb-8 pt-[max(18px,env(safe-area-inset-top))] backdrop-blur-2xl">
+          <div className="apple-menu-panel absolute inset-x-0 top-0 border-b border-white/10 bg-slate-950/95 px-5 pb-8 pt-[max(18px,env(safe-area-inset-top))] backdrop-blur-2xl">
             <div className="mb-5 flex items-center justify-between">
               <span className="text-sm font-semibold tracking-tight text-white/90">Menu</span>
               <button
@@ -125,7 +125,7 @@ export function Header() {
               </button>
             </div>
 
-            <nav className="flex flex-col">
+            <nav className="apple-menu-list flex flex-col">
               {navItems.map(({ to, label }) => (
                 <NavLink
                   key={to}
