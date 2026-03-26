@@ -23,28 +23,30 @@ export function ProjectDetail() {
   const mainImage = project.imageUrls[0]
 
   return (
-    <main className="page bg-transparent py-11 shadow-none">
-      <div className="mx-auto max-w-3xl px-5 pb-16 pt-4 md:px-6">
+    <main className="w-full bg-transparent pb-20 pt-0">
+      {mainImage && !imageErrors[0] && (
+        <div className="relative w-full overflow-hidden">
+          <img
+            src={mainImage}
+            alt=""
+            className="h-[min(52vh,620px)] w-full object-cover md:h-[min(56vh,680px)]"
+            onError={() => setImageErrors((prev) => ({ ...prev, [0]: true }))}
+          />
+        </div>
+      )}
+
+      <div className="mx-auto max-w-[1100px] space-y-12 px-5 pt-10 md:px-6 md:pt-12">
         <Link
           to="/projects"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
+          className="inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
         >
           ← Back to projects
         </Link>
 
-        {mainImage && !imageErrors[0] && (
-          <div className="mb-10 aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-white/10 md:aspect-[21/9]">
-            <img
-              src={mainImage}
-              alt=""
-              className="h-full w-full object-cover"
-              onError={() => setImageErrors((prev) => ({ ...prev, [0]: true }))}
-            />
-          </div>
-        )}
-
-        <header className="mb-8">
-          <h1 className="text-3xl font-extrabold text-text md:text-4xl">{project.title}</h1>
+        <header>
+          <h1 className="text-3xl font-extrabold text-text md:text-4xl lg:text-5xl">
+            {project.title}
+          </h1>
           <p className="mt-2 text-lg text-accent">@ {project.company}</p>
           <p className="mt-1 text-slate-400">
             {project.dateStart} to {project.dateEnd}
@@ -52,7 +54,7 @@ export function ProjectDetail() {
           </p>
         </header>
 
-        <div className="mb-10 border-t border-white/10 pt-8">
+        <div>
           <p className="whitespace-pre-line text-lg leading-relaxed text-slate-100 md:text-xl">
             {project.description}
           </p>
@@ -68,7 +70,7 @@ export function ProjectDetail() {
           />
         )}
 
-        <footer className="border-t border-white/10 pt-8">
+        <footer>
           <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-400">
             Technologies
           </h3>
