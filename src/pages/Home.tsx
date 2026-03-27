@@ -21,7 +21,7 @@ export function Home() {
           <br />
           system &amp; network
           <br />
-          engineer
+          enthusiast
         </h1>
 
         <a
