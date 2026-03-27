@@ -1,4 +1,4 @@
-import { Card, Tags, Tag, FadeIn } from '@/components/ui'
+﻿import { Card, Tags, Tag, FadeIn } from '@/components/ui'
 
 const passions = [
   {
@@ -22,8 +22,8 @@ const passions = [
   {
     title: 'Gaming',
     description:
-      'I play both co-op and competitive games, and I like tuning system and network settings for lower latency.',
-    tags: ['FPS', 'Racing', 'Co-op'],
+      'I enjoy story-driven games and shooters. I play to improve my skills and to fully dive into the worlds and stories created by developers.',
+    tags: ['FPS', 'Story Games', 'Competitive'],
   },
 ]
 
@@ -34,15 +34,15 @@ export function Passions() {
         <section className="grid auto-rows-fr items-stretch gap-5 md:grid-cols-2">
           {passions.map((p) => (
             <FadeIn key={p.title} className="h-full">
-            <Card className="h-full">
-              <h2 className="mb-3 text-xl font-bold text-text">{p.title}</h2>
-              <p className="mb-4 text-text">{p.description}</p>
-              <Tags>
-                {p.tags.map((t) => (
-                  <Tag key={t}>{t}</Tag>
-                ))}
-              </Tags>
-            </Card>
+              <Card className="h-full">
+                <h2 className="mb-3 text-xl font-bold text-text">{p.title}</h2>
+                <p className="mb-4 text-text">{p.description}</p>
+                <Tags>
+                  {p.tags.map((t) => (
+                    <Tag key={t}>{t}</Tag>
+                  ))}
+                </Tags>
+              </Card>
             </FadeIn>
           ))}
         </section>

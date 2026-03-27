@@ -1,4 +1,4 @@
-import { Card, Tags, Tag, FadeIn } from '@/components/ui'
+﻿import { Card, FadeIn } from '@/components/ui'
 
 const jobs = [
   {
@@ -16,9 +16,10 @@ const jobs = [
     company: 'Dumobat',
     meta: '2022–2024',
     bullets: [
-      'Promoted from intern in the first week.',
-      'Supported emails, vendor follow-up, and the calculation team.',
-      'Managed invoices, work orders, and internal documents.',
+      'I started as an intern, and during the internship they offered me the opportunity to keep working there in my free time, so I stayed.',
+      'I supported the project calculation process and helped prepare estimates for larger projects.',
+      'I visited job sites with the person responsible for calculations to learn the workflow and become useful in major project estimation.',
+      'I also handled office tasks such as emails, follow-ups, invoices, work orders, and internal documents.',
     ],
   },
 ]
@@ -27,6 +28,21 @@ export function Work() {
   return (
     <main className="page bg-transparent py-11 shadow-none">
       <div className="container mx-auto max-w-[1100px] px-5">
+        <section className="mb-5">
+          <FadeIn>
+            <Card>
+              <h2 className="mb-4 text-xl font-bold text-text">Work Journey</h2>
+              <p className="text-text leading-relaxed">
+                I started working at the age of 15 and have stayed active up to the
+                present. I have always enjoyed integrating into a team, learning on
+                the job, and growing inside a company. I focus on personal
+                development and regularly take courses to improve my technical and
+                professional skills.
+              </p>
+            </Card>
+          </FadeIn>
+        </section>
+
         <section className="mb-5">
           <FadeIn>
             <Card className="h-full">
@@ -51,35 +67,6 @@ export function Work() {
                   </div>
                 ))}
               </div>
-            </Card>
-          </FadeIn>
-        </section>
-
-        <section className="grid auto-rows-fr items-stretch gap-5 md:grid-cols-2">
-          <FadeIn className="h-full">
-            <Card className="h-full">
-              <h2 className="mb-4 text-xl font-bold text-text">Tools I use</h2>
-              <Tags>
-                <Tag>Linux</Tag>
-                <Tag>Windows Server</Tag>
-                <Tag>SSH</Tag>
-                <Tag>Git</Tag>
-                <Tag>Docker (basics)</Tag>
-                <Tag>VLANs</Tag>
-              </Tags>
-            </Card>
-          </FadeIn>
-
-          <FadeIn className="h-full">
-            <Card className="h-full">
-              <h2 className="mb-4 text-xl font-bold text-text">Strengths</h2>
-              <Tags>
-                <Tag>System Admin</Tag>
-                <Tag>Networking</Tag>
-                <Tag>Troubleshooting</Tag>
-                <Tag>Team Player</Tag>
-                <Tag>Communication</Tag>
-              </Tags>
             </Card>
           </FadeIn>
         </section>

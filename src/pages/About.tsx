@@ -1,4 +1,4 @@
-import { Card, Tags, Tag, FadeIn } from '@/components/ui'
+﻿import { Card, Tags, Tag, FadeIn } from '@/components/ui'
 
 export function About() {
   return (
@@ -56,8 +56,37 @@ export function About() {
                 <Tag>After Effects / Photoshop</Tag>
                 <Tag>Rack assembly & config</Tag>
                 <Tag>Office suite</Tag>
-                <Tag>Communication</Tag>
+                <Tag>Adaptability</Tag>
                 <Tag>Problem solving</Tag>
+              </Tags>
+            </Card>
+          </FadeIn>
+        </section>
+
+        <section className="mt-5 grid auto-rows-fr items-stretch gap-5 md:grid-cols-2">
+          <FadeIn className="h-full">
+            <Card className="h-full">
+              <h2 className="mb-4 text-xl font-bold text-text">Tools I use</h2>
+              <Tags>
+                <Tag>Linux</Tag>
+                <Tag>Windows Server</Tag>
+                <Tag>SSH</Tag>
+                <Tag>Git</Tag>
+                <Tag>Docker (basics)</Tag>
+                <Tag>VLANs</Tag>
+              </Tags>
+            </Card>
+          </FadeIn>
+
+          <FadeIn className="h-full">
+            <Card className="h-full">
+              <h2 className="mb-4 text-xl font-bold text-text">Strengths</h2>
+              <Tags>
+                <Tag>System Admin</Tag>
+                <Tag>Networking</Tag>
+                <Tag>Troubleshooting</Tag>
+                <Tag>Team Player</Tag>
+                <Tag>Fast Learner</Tag>
               </Tags>
             </Card>
           </FadeIn>
